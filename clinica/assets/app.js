@@ -11,11 +11,11 @@
   var WA = 'https://wa.me/?text=' + encodeURIComponent('Hola, quiero agendar mi valoración gratuita');
   var KB = [
     {k:['hola','buenas','buenos','que tal'], a:'¡Hola! Soy el asesor virtual de Alineo. Puedo ayudarte con precios, duración, cuidados y ubicaciones.'},
-    {k:['precio','costo','cuanto cuesta','cuesta','pagar','pago','msi','meses','intereses','plan'], a:'Tenemos tres planes: Esencial (valoración 3D) $890, Plus $18,900 y Premium $32,900 MXN. Puedes pagar en la clínica y diferir hasta 12 meses sin intereses con tarjetas participantes. (Precios de ejemplo)'},
+    {k:['precio','costo','cuanto cuesta','cuesta','pagar','pago','msi','meses','intereses','plan'], a:'Tenemos tres planes: Esencial (valoración 3D) $890, Plus $18,900 y Premium $32,900 MXN. Puedes pagar en la clínica y diferir hasta 12 meses sin intereses con tarjetas participantes.'},
     {k:['dura','duracion','tiempo','tarda','cuanto tiempo'], a:'Un tratamiento corto dura de 6 a 9 meses y uno completo de 12 a 18, según tu caso. En la valoración 3D te mostramos tu plan y tiempos estimados.'},
     {k:['dolor','duele','molest','lastima'], a:'Es normal sentir una presión leve los primeros días de cada nuevo juego de alineadores, pero no es doloroso. Si algo te preocupa, tu especialista te orienta.'},
     {k:['cuidado','limpi','cepill','comer','horas','usar'], a:'Usa tus alineadores unas 22 horas al día, quítatelos para comer y cepíllate antes de volver a ponértelos. Límpialos con agua fría y un cepillo suave.'},
-    {k:['donde','ubicacion','direccion','clinica','sucursal','mapa','llegar','cerca'], a:'Tenemos tres clínicas de ejemplo: Centro, Norte y Sur. En la página “Clínicas” ves direcciones y horarios, y puedes agendar en la que prefieras.'},
+    {k:['donde','ubicacion','direccion','clinica','sucursal','mapa','llegar','cerca'], a:'Tenemos tres clínicas: Centro, Norte y Sur. En la página “Clínicas” ves direcciones y horarios, y puedes agendar en la que prefieras.'},
     {k:['edad','adolescente','adulto','candidato','sirve','puedo usar'], a:'Funciona para la mayoría de adultos y adolescentes con dientes permanentes. Solo un especialista puede confirmar si eres candidato en tu valoración.'},
     {k:['agendar','cita','reservar','valoracion','whatsapp','hablar','contacto'], a:'¡Claro! La valoración 3D no tiene costo. Te paso a WhatsApp para elegir clínica y horario.', wa:true},
     {k:['diagnost','enfermedad','medicamento','receta','tengo caries','infeccion'], a:'No puedo diagnosticar ni recomendar tratamientos. Para eso necesitas una valoración con un especialista.', wa:true},
@@ -50,7 +50,7 @@
     var input = el('input'); input.type='text'; input.placeholder='Escribe tu pregunta…'; input.setAttribute('aria-label','Tu pregunta'); input.maxLength = 200;
     var send = el('button'); send.type='submit'; send.setAttribute('aria-label','Enviar'); send.innerHTML='<svg class="i"><use href="#i-send"/></svg>';
     form.appendChild(input); form.appendChild(send);
-    var disc = el('div','disc','No diagnostica ni guarda datos de salud. Demostración con respuestas de ejemplo.');
+    var disc = el('div','disc','No diagnostica ni guarda datos de salud.');
     [h,msgs,qr,form,disc].forEach(function(n){box.appendChild(n);});
     root.appendChild(box);
 
