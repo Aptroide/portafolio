@@ -9,13 +9,13 @@
 <meta property="og:description" content="Tres sitios de demostración con estilos distintos: contable, portal de salud y landing de conversión con IA.">
 <meta property="og:image" content="assets/salud.webp">
 <link rel="icon" type="image/webp" href="assets/favicon.webp">
-<meta name="theme-color" content="#0e0e10">
+<meta name="theme-color" content="#1b2535">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#f3f0e8; --ink:#0e0e10; --ink-2:#2a2a2f; --muted:#62625f; --lime:#d6ff3d; --card:#fff; --line:#dcd8cc;
+    --bg:#f3f6fa; --ink:#1b2535; --ink-2:#2c394d; --muted:#5a6679; --lime:#9cc3ea; --card:#fff; --line:#d5dce6;
     --radius:22px; --hdr:65px;
   }
   *{box-sizing:border-box}
@@ -28,7 +28,7 @@
   .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
 
   /* Header */
-  .top{position:sticky;top:0;z-index:30;background:rgba(243,240,232,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .top{position:sticky;top:0;z-index:30;background:rgba(243,246,250,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:20px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;letter-spacing:-.02em}
   .brand .mk{width:32px;height:32px;border-radius:10px;background:var(--ink);display:grid;place-items:center}
@@ -36,7 +36,7 @@
   .brand .emb{height:50px;width:auto;display:block}
   .brand .tx{display:flex;flex-direction:column;line-height:1.05}
   .brand .tx b{font-size:20px;letter-spacing:.02em}
-  .brand .tx small{font-size:11px;font-weight:600;color:var(--muted,#6b6b66);letter-spacing:.02em}
+  .brand .tx small{font-size:11px;font-weight:600;color:var(--muted,#5a6679);letter-spacing:.02em}
   footer .wrap>span:first-child{display:flex;align-items:center;gap:10px}
   footer .emb{height:28px;width:auto;filter:brightness(0) invert(1);opacity:.85}
   @media (max-width:520px){.brand .tx small{display:none}}
@@ -107,13 +107,13 @@
 
   /* Contact */
   #contacto h2{font-size:clamp(30px,7vh,72px);max-width:13ch}
-  #contacto .lead{color:#c9c9c4;margin-bottom:clamp(16px,3vh,28px)}
+  #contacto .lead{color:#c3ccd8;margin-bottom:clamp(16px,3vh,28px)}
   .incl{display:grid;grid-auto-rows:1fr;gap:clamp(6px,1.2vh,12px)}
   .incl li{display:flex;gap:clamp(12px,1.6vw,20px);align-items:center;border:1.5px solid rgba(255,255,255,.2);border-radius:18px;padding:clamp(8px,1.4vh,14px) clamp(14px,1.4vw,20px);font-size:clamp(13px,1.7vh,16px)}
   .incl li::before{content:"✓";flex-shrink:0;width:clamp(26px,4vh,40px);height:clamp(26px,4vh,40px);border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;font-weight:700;font-size:14px}
   .incl b{display:block;font-size:clamp(15px,2.3vh,21px);letter-spacing:-.01em;margin-bottom:2px}
-  .incl span{color:#b5b5b0;font-size:.92em}
-  footer{background:var(--ink);color:#9b9b95;border-top:1px solid rgba(255,255,255,.14);padding:18px 0;font-size:13.5px}
+  .incl span{color:#aab6c6;font-size:.92em}
+  footer{background:var(--ink);color:#9aa7b8;border-top:1px solid rgba(255,255,255,.14);padding:18px 0;font-size:13.5px}
   footer .wrap{display:flex;flex-direction:column;gap:6px}
 
   @media (min-width:720px){
@@ -203,7 +203,7 @@
     </div>
   </section>
 
-  <section id="proyectos" class="screen" style="background:#ebe7dc">
+  <section id="proyectos" class="screen" style="background:#e6ebf2">
     <div class="wrap">
       <div class="row-h">
         <div><span class="eyebrow">Proyectos</span><h2>Tres demos, tres enfoques</h2></div>
