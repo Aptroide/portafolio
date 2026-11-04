@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Norte &amp; Asociados | Estudio contable (sitio de demostración)</title>
+<meta name="description" content="Demo de sitio web para un estudio contable. Marca ficticia creada para portafolio.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312263a'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%234fa3d9' stroke-width='3.5'/%3E%3Cpath d='M32 14l8 20-8-5-8 5 8-20z' fill='%234fa3d9'/%3E%3Cpath d='M32 50V36' stroke='%234fa3d9' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#12263a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#12263a; --navy-2:#1c3752; --blue:#1d6fa5; --sky:#4fa3d9;
+    --bg:#f6f8fb; --card:#ffffff; --line:#e1e7ee; --text:#1b2530; --muted:#5d6b79;
+    --gold:#c9a14a;
+    --radius:14px; --shadow:0 10px 30px rgba(18,38,58,.08);
+  }
+  *{box-sizing:border-box}
+  :root{--hdr:101px}
+  html{scroll-behavior:smooth;scroll-snap-type:y proximity;scroll-padding-top:var(--hdr)}
+  .top{position:sticky;top:0;z-index:20}
+  .screen{min-height:calc(100svh - var(--hdr));scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center}
+  .last{min-height:calc(100svh - var(--hdr));scroll-snap-align:start;display:flex;flex-direction:column}
+  .last #contacto{flex:1;display:flex;flex-direction:column;justify-content:center}
+  body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img,svg{max-width:100%}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;color:var(--navy);line-height:1.15;margin:0;letter-spacing:-.01em}
+  .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+  .demo-bar{background:var(--gold);color:#2a2008;font-size:13px;font-weight:600;text-align:center;padding:8px 16px}
+
+  /* Nav */
+  .nav{background:var(--navy)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;color:#fff;font-family:Fraunces,serif;font-weight:700;font-size:20px}
+  .brand svg{color:var(--sky);flex-shrink:0}
+  .brand{white-space:nowrap;font-size:18px}
+  .nav .btn{padding:10px 14px;font-size:14px;white-space:nowrap}
+  @media (min-width:720px){.brand{font-size:20px}.nav .btn{padding:12px 22px;font-size:15px}}
+  .links{display:none;gap:28px;color:#cfd9e4;font-size:15px;font-weight:500}
+  .links a:hover{color:#fff}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 15px Inter,sans-serif;padding:12px 22px;border-radius:10px;border:0;cursor:pointer;transition:transform .15s,background .15s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-sky{background:var(--sky);color:#06202f}
+  .btn-sky:hover{background:#6bb5e4}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+  .btn-navy{background:var(--navy);color:#fff}
+
+  /* Hero */
+  .hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;padding:40px 0;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;border:1px solid rgba(79,163,217,.25);box-shadow:0 0 0 60px rgba(79,163,217,.05),0 0 0 120px rgba(79,163,217,.03)}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:16px}
+  .hero h1{color:#fff;font-size:clamp(38px,9vw,76px);max-width:14ch;line-height:1.05}
+  .hero p.lead{color:#cfd9e4;font-size:clamp(17px,2.4vw,21px);max-width:50ch;margin:22px 0 32px}
+  .hero .btn{padding:16px 28px;font-size:17px}
+  .hero .actions{display:flex;flex-wrap:wrap;gap:12px}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;max-width:640px}
+  .hero-stats div{border-top:2px solid var(--sky);padding-top:12px}
+  .hero-stats b{display:block;font:700 clamp(30px,6vw,44px) Fraunces,serif;line-height:1.1}
+  .hero-stats span{font-size:15px;color:#a9bccd}
+
+  /* Hero visual */
+  .hero-visual{display:none}
+  .snap{background:#fff;border-radius:20px;box-shadow:0 30px 70px rgba(0,0,0,.35);padding:28px 28px 68px;color:var(--text);position:relative}
+  .snap-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+  .snap-head b{font:700 20px Fraunces,serif;color:var(--navy)}
+  .snap-head span{font-size:13px;color:var(--muted)}
+  .snap-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-top:1px solid var(--line);font-size:17px}
+  .snap-row .dot{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;background:#e3f4ea;color:#1c7a47;font-weight:700;font-size:15px}
+  .snap-row .dot.wait{background:#fdf3dc;color:#8a6410}
+  .snap-row em{margin-left:auto;font-style:normal;font-size:14px;color:var(--muted)}
+  .bars{display:flex;align-items:flex-end;gap:10px;height:110px;margin-top:18px;padding-top:6px;border-top:1px solid var(--line)}
+  .bars i{flex:1;background:linear-gradient(180deg,var(--sky),var(--blue));border-radius:6px 6px 0 0;display:block}
+  .snap-badge{position:absolute;left:-28px;bottom:-22px;background:var(--sky);color:#06202f;border-radius:14px;padding:14px 18px;box-shadow:0 14px 30px rgba(0,0,0,.35);font-size:15px;font-weight:600}
+  .snap-badge b{display:block;font:700 28px Fraunces,serif;color:var(--navy)}
+  @media (min-width:960px){
+    .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+    .hero-visual{display:block}
+  }
+
+  /* Sections */
+  section{padding:40px 0}
+  @media (max-width:719px){
+    .grid.cols-3{grid-template-columns:repeat(2,1fr);gap:12px}
+    .grid.cols-3 .card{padding:16px}
+    .grid.cols-3 .card h3{font-size:16px}
+    .grid.cols-3 .card p{font-size:13px;line-height:1.45}
+    .grid.cols-3 .card .ico{display:none}
+    .grid.cols-3 .card{padding:14px}
+    .grid.cols-3 .card p{font-size:12.5px}
+    #servicios .head p{display:none}
+    #servicios .head{margin-bottom:16px}
+    .head{margin-bottom:22px}
+  }
+  .head{max-width:640px;margin-bottom:36px}
+  .head .eyebrow{color:var(--blue)}
+  .head h2{font-size:clamp(28px,5vw,40px)}
+  .head p{color:var(--muted);margin:12px 0 0}
+
+  .grid{display:grid;gap:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+  .card .ico{width:44px;height:44px;border-radius:12px;background:#e8f2fa;color:var(--blue);display:grid;place-items:center;margin-bottom:16px}
+  .card h3{font-size:21px;margin-bottom:8px}
+  .card p{margin:0;color:var(--muted);font-size:15.5px}
+
+  /* Process */
+  #proceso .head{max-width:820px;margin-bottom:32px}
+  #proceso .head h2{font-size:clamp(28px,5vw,48px)}
+  .steps{display:grid;gap:14px}
+  .step{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:22px 24px;position:relative;overflow:hidden}
+  .step .n{font:700 clamp(40px,8vw,88px) Fraunces,serif;color:var(--sky);line-height:1;display:block;margin-bottom:12px}
+  .step .when{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .step h3{font-size:clamp(22px,3.4vw,34px);color:#fff;margin-bottom:8px}
+  .step p{margin:0;color:#c3d1de;font-size:clamp(16px,2vw,21px);line-height:1.55}
+  @media (max-width:719px){
+    .step{display:grid;grid-template-columns:60px 1fr;column-gap:14px;padding:18px 16px;align-items:start}
+    .step .n{grid-row:1 / span 2;font-size:46px;margin:0}
+    .step h3{font-size:21px;margin-bottom:4px}
+    .step p{font-size:15.5px;line-height:1.45}
+    .step .when{display:none}
+    #proceso .head{margin-bottom:18px}
+    #proceso .head .eyebrow{margin-bottom:6px}
+  }
+
+  .band{background:var(--navy);color:#fff}
+  .band h2{color:#fff}
+  .band .head p{color:#a9bccd}
+  .band .head .eyebrow{color:var(--sky)}
+
+  /* Quotes */
+  .quote{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:24px}
+  .quote p{margin:0 0 16px;color:#e4ecf3}
+  .quote cite{font-style:normal;font-size:14px;color:var(--sky);font-weight:600}
+  .quote small{display:block;color:#8fa6ba;font-weight:400}
+
+  /* Contact */
+  .contact{display:grid;gap:28px}
+  .contact form{display:grid;gap:14px}
+  label{font-size:14px;font-weight:600;color:var(--navy)}
+  input,select,textarea{width:100%;font:400 15.5px Inter,sans-serif;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--text);margin-top:6px}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--sky);border-color:transparent}
+  .info p{margin:0 0 10px;color:var(--muted)}
+  .info b{color:var(--navy)}
+
+  footer{background:var(--navy);color:#a9bccd;padding:30px 0;font-size:14px}
+  footer .wrap{display:flex;flex-direction:column;gap:6px}
+
+  @media (min-width:720px){
+    .links{display:flex}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:repeat(2,1fr);gap:20px}
+    .step{padding:32px 34px}
+    .contact{grid-template-columns:1.1fr .9fr}
+    footer .wrap{flex-direction:row;justify-content:space-between}
+  }
+  @media (min-width:960px){
+    .hero{padding:48px 0}
+    section{padding:48px 0}
+  }
+  /* Clients */
+  .cl-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:28px}
+  .cl-head .head{margin:0;max-width:none}
+  .cl-head h2{white-space:nowrap}
+  @media (max-width:719px){.cl-head h2{white-space:normal}.side .mini:nth-child(2){display:none}}
+  .rating{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 20px;box-shadow:var(--shadow)}
+  .rating b{font:700 38px Fraunces,serif;color:var(--navy);line-height:1}
+  .rating small{display:block;color:var(--muted);font-size:13px}
+  .stars{color:var(--gold);letter-spacing:2px;font-size:18px;display:block}
+  .cl-grid{display:grid;gap:16px}
+  .feat{background:var(--navy);color:#fff;border-radius:20px;padding:clamp(22px,4vh,40px);display:flex;flex-direction:column;justify-content:space-between;gap:20px;position:relative;overflow:hidden}
+  .feat::before{content:"“";position:absolute;right:24px;top:-20px;font:700 200px Fraunces,serif;color:rgba(79,163,217,.16);line-height:1}
+  .feat blockquote{margin:0;font:600 clamp(20px,3.2vh,30px)/1.35 Fraunces,serif;position:relative}
+  .who{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .av{width:46px;height:46px;border-radius:50%;background:var(--sky);color:#06202f;display:grid;place-items:center;font-weight:700;flex-shrink:0}
+  .who b{display:block;font-size:16px}
+  .who small{display:block;opacity:.7;font-size:14px}
+  .chip{margin-left:auto;background:rgba(201,161,74,.18);color:var(--gold);border:1px solid rgba(201,161,74,.4);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600}
+  .side{display:grid;gap:16px}
+  .mini{display:flex;flex-direction:column;gap:12px;justify-content:space-between;padding:clamp(18px,3vh,26px)}
+  .mini p.q{margin:0;font-size:clamp(15px,2.3vh,19px);color:var(--text);line-height:1.5}
+  .mini .av{background:#e8f2fa;color:var(--blue)}
+  .mini .who b{color:var(--navy)}
+  .mini .who small{color:var(--muted);opacity:1}
+  @media (min-width:960px){.cl-grid{grid-template-columns:1.25fr 1fr}}
+  @media (max-width:719px){
+    .rating,.chip,#clientes .head p{display:none}
+    .cl-head{margin-bottom:16px}
+    .feat{padding:18px;gap:12px}
+    .feat blockquote{font-size:18px}
+    .mini{padding:14px;gap:8px}
+    .mini p.q{font-size:14.5px}
+    .av{width:38px;height:38px;font-size:14px}
+  }
+  @media (min-width:720px) and (max-height:860px){
+    #clientes .head p{display:none}
+    .rating small{display:none}
+  }
+
+  /* Height-aware sizing so each section fits one screen on laptops too */
+  @media (min-width:720px){
+    section,.hero{padding:clamp(20px,4vh,48px) 0}
+  }
+  @media (min-width:960px){
+    .hero h1{font-size:clamp(34px,min(6vw,7.6vh),76px)}
+    .hero p.lead{font-size:clamp(16px,2.3vh,21px);margin:clamp(12px,2.4vh,22px) 0 clamp(16px,3.2vh,32px)}
+    .hero .btn{padding:clamp(12px,2vh,16px) 28px}
+    .hero-stats{margin-top:clamp(18px,4vh,40px)}
+    .hero-stats b{font-size:clamp(28px,4.6vh,44px)}
+  }
+  @media (min-width:1100px){
+    .steps{grid-template-columns:repeat(4,1fr)}
+    .step{padding:clamp(18px,3.4vh,32px) clamp(16px,1.8vw,28px)}
+    .step .n{font-size:clamp(40px,8vh,88px)}
+    .step h3{font-size:clamp(20px,3.2vh,30px)}
+    .step p{font-size:clamp(15px,2.1vh,19px)}
+  }
+  @media (min-width:720px) and (max-height:860px){
+    .grid.cols-3 .card .ico{display:none}
+    .grid.cols-3 .card{padding:18px 22px}
+    #servicios .head p{display:none}
+    .head,#proceso .head{margin-bottom:20px}
+    #contacto .head p{display:none}
+    #contacto .head{margin-bottom:16px}
+    .contact form{grid-template-columns:1fr 1fr;gap:10px 14px}
+    .contact form label:nth-child(n+3),.contact form button{grid-column:1/-1}
+    .contact input,.contact select,.contact textarea{padding:9px 12px;margin-top:4px}
+    .contact textarea{height:68px;resize:none}
+    .contact .info.card{padding:20px}
+  }
+  @media (min-width:960px){.hero h1{font-size:clamp(34px,min(6vw,7vh),76px)}}
+  @media (max-width:719px){
+    .step{padding:14px 14px}
+    .step .n{font-size:42px}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="top">
+<div class="demo-bar">Sitio de demostración · Marca ficticia creada para portafolio</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#inicio" class="brand" aria-label="Norte &amp; Asociados">
+      <svg width="28" height="28" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/><path d="M20 7l5 13-5-3-5 3 5-13z" fill="currentColor"/><path d="M20 33V22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      Norte &amp; Asociados
+    </a>
+    <nav class="links" aria-label="Principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a href="#contacto" class="btn btn-sky">Agendar consulta</a>
+  </div>
+</header>
+</div>
+
+<main id="inicio">
+  <div class="hero screen">
+    <div class="wrap">
+      <div class="hero-copy">
+      <span class="eyebrow">Estudio contable y tributario</span>
+      <h1>Tus números en orden, tu negocio en marcha.</h1>
+      <p class="lead">Contabilidad, impuestos y asesoría para pequeñas y medianas empresas. Te explicamos cada cifra en un lenguaje claro y nos ocupamos de los plazos por vos.</p>
+      <div class="actions">
+        <a href="#contacto" class="btn btn-sky">Solicitar diagnóstico gratuito</a>
+        <a href="#servicios" class="btn btn-ghost">Ver servicios</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>15+</b><span>años de experiencia</span></div>
+        <div><b>320</b><span>empresas acompañadas</span></div>
+        <div><b>100%</b><span>declaraciones en plazo</span></div>
+      </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="snap">
+          <div class="snap-head"><b>Resumen del mes</b><span>Ejemplo ilustrativo</span></div>
+          <div class="snap-row"><span class="dot">✓</span>Declaración de IVA<em>Presentada</em></div>
+          <div class="snap-row"><span class="dot">✓</span>Nómina y aportes<em>Pagada</em></div>
+          <div class="snap-row"><span class="dot">✓</span>Conciliación bancaria<em>Al día</em></div>
+          <div class="snap-row"><span class="dot wait">●</span>Impuesto a la renta<em>Programada</em></div>
+          <div class="bars"><i style="height:38%"></i><i style="height:52%"></i><i style="height:46%"></i><i style="height:68%"></i><i style="height:60%"></i><i style="height:88%"></i></div>
+          <div class="snap-badge"><b>0</b>obligaciones vencidas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="servicios" class="screen">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Servicios</span>
+        <h2>Todo lo contable, en un solo lugar</h2>
+        <p>Desde el día a día hasta la planificación del año. Elegí lo que necesitás o dejá que nos encarguemos de todo.</p>
+      </div>
+      <div class="grid cols-3">
+        <article class="card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5m0 14h16M8 15v-4m4 4V8m4 7v-2"/></svg></div>
+          <h3>Contabilidad mensual</h3>
+          <p>Registro, conciliaciones y estados financieros claros, listos cada mes.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M10 13h6M10 17h6"/></svg></div>
+          <h3>Impuestos y declaraciones</h3>
+          <p>Presentamos tus obligaciones a tiempo y buscamos la carga fiscal más eficiente.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5M17 11a3 3 0 100-6M21 20c0-2-1.5-3.8-4-4.6"/></svg></div>
+          <h3>Nómina y personal</h3>
+          <p>Roles de pago, aportes y contratos sin errores ni sorpresas.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></div>
+          <h3>Constitución de empresas</h3>
+          <p>Te acompañamos desde la idea hasta que tu empresa está legalmente operando.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></div>
+          <h3>Asesoría financiera</h3>
+          <p>Presupuestos, flujo de caja y decisiones respaldadas con datos reales.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Auditoría preventiva</h3>
+          <p>Revisamos tus libros antes de que lo haga la autoridad. Tranquilidad total.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="proceso" class="band screen">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Cómo trabajamos</span>
+        <h2>Un proceso simple, sin letra chica</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">01</span><span class="when">Día 1</span><h3>Diagnóstico gratuito</h3><p>Revisamos tu situación y te decimos qué conviene, sin compromiso.</p></div>
+        <div class="step"><span class="n">02</span><span class="when">Semana 1</span><h3>Propuesta clara</h3><p>Un plan con alcance y precio fijo mensual. Sabés lo que pagás.</p></div>
+        <div class="step"><span class="n">03</span><span class="when">Mes 1</span><h3>Ordenamos tu base</h3><p>Migramos tu información y ponemos al día lo pendiente.</p></div>
+        <div class="step"><span class="n">04</span><span class="when">Todo el año</span><h3>Acompañamiento continuo</h3><p>Reportes mensuales y una persona de contacto que responde.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="clientes" class="screen">
+    <div class="wrap">
+      <div class="cl-head">
+        <div class="head">
+          <span class="eyebrow">Clientes</span>
+          <h2>Lo que dicen empresas como la tuya</h2>
+          <p>Testimonios de ejemplo para esta demostración.</p>
+        </div>
+        <div class="rating">
+          <b>4.9</b>
+          <div><span class="stars" aria-hidden="true">★★★★★</span><small>Valoración promedio · 120 reseñas (ejemplo)</small></div>
+        </div>
+      </div>
+      <div class="cl-grid">
+        <article class="feat">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <blockquote>“Pasamos de entregar papeles tarde a tener reportes claros cada mes. Cambió cómo tomamos decisiones y hoy sabemos cuánto ganamos de verdad.”</blockquote>
+          <div class="who">
+            <span class="av">CM</span>
+            <div><b>Carolina M.</b><small>Gerente · Tienda de repuestos</small></div>
+            <span class="chip">−18% en impuestos</span>
+          </div>
+        </article>
+        <div class="side">
+          <article class="card mini">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <p class="q">“Nos ordenaron la nómina y los impuestos en dos meses. Hoy ya no pensamos en eso.”</p>
+            <div class="who"><span class="av">AR</span><div><b>Andrés R.</b><small>Restaurante familiar</small></div></div>
+          </article>
+          <article class="card mini">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <p class="q">“Respondieron todas mis dudas el mismo día y nunca más pagué una multa por atraso.”</p>
+            <div class="who"><span class="av">LP</span><div><b>Lucía P.</b><small>Clínica veterinaria</small></div></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="last">
+  <section id="contacto" style="background:#fff;border-top:1px solid var(--line)">
+    <div class="wrap contact">
+      <div>
+        <div class="head" style="margin-bottom:24px">
+          <span class="eyebrow">Contacto</span>
+          <h2>Contanos de tu empresa</h2>
+          <p>Te respondemos en menos de un día hábil con una propuesta inicial.</p>
+        </div>
+        <form onsubmit="event.preventDefault();this.querySelector('button').textContent='Gracias, es una demostración';">
+          <label>Nombre<input type="text" name="nombre" placeholder="Tu nombre" required></label>
+          <label>Correo<input type="email" name="correo" placeholder="correo@ejemplo.com" required></label>
+          <label>¿Qué necesitás?
+            <select name="interes">
+              <option>Contabilidad mensual</option>
+              <option>Impuestos y declaraciones</option>
+              <option>Nómina</option>
+              <option>Crear una empresa</option>
+              <option>Otro</option>
+            </select>
+          </label>
+          <label>Mensaje<textarea name="mensaje" rows="4" placeholder="Contanos brevemente"></textarea></label>
+          <button class="btn btn-navy" type="submit">Enviar consulta</button>
+        </form>
+      </div>
+      <aside class="info card" style="align-self:start">
+        <h3 style="margin-bottom:14px">Datos de contacto</h3>
+        <p><b>Dirección:</b> Av. Ejemplo 123, Oficina 4</p>
+        <p><b>Horario:</b> Lunes a viernes, 9:00 a 18:00</p>
+        <p><b>Teléfono:</b> +00 000 000 000</p>
+        <p><b>Correo:</b> contacto@ejemplo.com</p>
+        <p style="font-size:13px;margin-top:16px">Datos ficticios con fines de demostración.</p>
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>© Norte &amp; Asociados · Sitio de demostración, no corresponde a una empresa real.</span>
+      <span>Diseño y desarrollo web: tu estudio aquí</span>
+    </div>
+  </footer>
+  </div>
+</main>
+
+<script>
+  // Keep full-screen sections aligned with the real sticky header height.
+  (function () {
+    var top = document.querySelector('.top');
+    if (!top || !window.ResizeObserver) return;
+    new ResizeObserver(function () {
+      document.documentElement.style.setProperty('--hdr', top.offsetHeight + 'px');
+    }).observe(top);
+  })();
+</script>
+
+</body>
+</html>
