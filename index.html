@@ -8,7 +8,7 @@
 <meta property="og:title" content="GJG Servicios de Consultoría | Demos de diseño web">
 <meta property="og:description" content="Tres sitios de demostración con estilos distintos: contable, portal de salud y landing de conversión con IA.">
 <meta property="og:image" content="assets/salud.webp">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230e0e10'/%3E%3Cpath d='M45 22a16 16 0 1 0 3 12H33' fill='none' stroke='%23d6ff3d' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" type="image/webp" href="assets/favicon.webp">
 <meta name="theme-color" content="#0e0e10">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,6 +33,13 @@
   .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;letter-spacing:-.02em}
   .brand .mk{width:32px;height:32px;border-radius:10px;background:var(--ink);display:grid;place-items:center}
   .brand .mk svg{width:20px;height:20px}
+  .brand .emb{height:50px;width:auto;display:block}
+  .brand .tx{display:flex;flex-direction:column;line-height:1.05}
+  .brand .tx b{font-size:20px;letter-spacing:.02em}
+  .brand .tx small{font-size:11px;font-weight:600;color:var(--muted,#6b6b66);letter-spacing:.02em}
+  footer .wrap>span:first-child{display:flex;align-items:center;gap:10px}
+  footer .emb{height:28px;width:auto;filter:brightness(0) invert(1);opacity:.85}
+  @media (max-width:520px){.brand .tx small{display:none}}
   .links{display:none;gap:26px;font-weight:500;font-size:15px;color:var(--ink-2)}
   .links a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px;text-decoration-color:var(--lime)}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 15px 'Space Grotesk',sans-serif;padding:13px 24px;border-radius:999px;border:2px solid var(--ink);cursor:pointer;white-space:nowrap;transition:transform .15s,background .15s,color .15s}
@@ -159,7 +166,7 @@
 
 <header class="top">
   <div class="wrap">
-    <a href="#inicio" class="brand" aria-label="GJG Servicios de Consultoría"><span class="mk"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M45 22a16 16 0 1 0 3 12H33" fill="none" stroke="#d6ff3d" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>GJG</a>
+    <a href="#inicio" class="brand" aria-label="GJG Servicios de Consultoría"><img class="emb" src="assets/gjg-emblem.webp" width="50" height="51" alt=""><span class="tx"><b>G-J-G</b><small>Servicios de Consultoría</small></span></a>
     <nav class="links" aria-label="Principal">
       <a href="#proyectos">Proyectos</a>
       <a href="#contacto">Qué incluye</a>
@@ -267,7 +274,7 @@
     </section>
     <footer>
       <div class="wrap">
-        <span>© GJG Servicios de Consultoría</span>
+        <span><img class="emb" src="assets/gjg-emblem.webp" width="28" height="28" alt="" loading="lazy">© GJG Servicios de Consultoría</span>
         <span>Diseño y desarrollo web a medida</span>
       </div>
     </footer>
