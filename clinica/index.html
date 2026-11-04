@@ -4,394 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alineo | Ortodoncia invisible, valoración gratis (sitio de demostración)</title>
-<meta name="description" content="Demo de sitio de alta conversión para una clínica: paquetes, asesor con IA, WhatsApp y agenda. Marca ficticia creada para portafolio.">
-<meta property="og:title" content="Alineo | Ortodoncia invisible (demo)">
-<meta property="og:description" content="Sitio de demostración mobile-first con asesor de IA y llamadas a la acción.">
+<meta name="description" content="Demo de sitio multipágina de alta conversión para una clínica: paquetes, asesor con IA, WhatsApp y agenda. Marca ficticia creada para portafolio.">
+<meta property="og:title" content="Alineo | Ortodoncia invisible, valoración gratis (sitio de demostración)">
+<meta property="og:description" content="Demo de sitio multipágina de alta conversión para una clínica: paquetes, asesor con IA, WhatsApp y agenda. Marca ficticia creada para portafolio.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%236a3df0'/%3E%3Cpath d='M12 30c8 14 32 14 40 0' fill='none' stroke='%23fff' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='22' r='4' fill='%23ffc83d'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#6a3df0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"¿Cuánto cuesta la ortodoncia invisible?","acceptedAnswer":{"@type":"Answer","text":"En esta demo, los planes van desde $890 MXN (valoración 3D) hasta $32,900 MXN, con hasta 12 meses sin intereses."}},
-{"@type":"Question","name":"¿Cuánto dura el tratamiento?","acceptedAnswer":{"@type":"Answer","text":"Entre 6 y 18 meses según el caso. La valoración 3D estima tu tiempo."}},
-{"@type":"Question","name":"¿Los alineadores duelen?","acceptedAnswer":{"@type":"Answer","text":"Puedes sentir presión leve los primeros días de cada juego, pero no es doloroso."}}]}
-</script>
-<style>
-  :root{
-    --ink:#1c1533; --violet:#6a3df0; --violet-d:#4f27c9; --lilac:#f0ebff; --bg:#fbfaff; --wa:#1fbf5b; --wa-d:#17a24c;
-    --sun:#ffc83d; --line:#e6e0f5; --muted:#5f5a78; --card:#fff; --radius:22px;
-    --hdr:101px; --bar:0px;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth;scroll-snap-type:y proximity;scroll-padding-top:var(--hdr)}
-  body{margin:0;font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:var(--bar)}
-  a{color:inherit;text-decoration:none}
-  h1,h2,h3,h4{margin:0;font-family:'Sora',system-ui,sans-serif;font-weight:700;letter-spacing:-.03em;line-height:1.08}
-  p{margin:0}
-  ul{list-style:none;margin:0;padding:0}
-  .i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-  .i.f{fill:currentColor;stroke:none}
-  .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 18px}
-
-  /* Header */
-  .top{position:sticky;top:0;z-index:40}
-  .demo-bar{background:var(--ink);color:var(--sun);font-size:12.5px;font-weight:600;text-align:center;padding:8px 14px}
-  .nav{background:rgba(251,250,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav .wrap{display:flex;align-items:center;gap:22px;height:64px}
-  .brand{display:flex;align-items:center;gap:10px;font:800 22px 'Sora',sans-serif;letter-spacing:-.04em}
-  .brand .mk{width:34px;height:34px;border-radius:11px;background:var(--violet);display:grid;place-items:center;color:#fff;font-size:20px}
-  .links{display:none;gap:22px;font-weight:600;font-size:14.5px;color:var(--muted);margin-left:auto}
-  .links a:hover{color:var(--violet)}
-  .nav .push{margin-left:auto;display:flex;gap:10px;align-items:center}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font:700 15px 'Manrope',sans-serif;padding:13px 22px;border-radius:999px;border:0;cursor:pointer;white-space:nowrap;transition:transform .15s,background .15s,box-shadow .15s}
-  .btn:hover{transform:translateY(-2px)}
-  .btn-wa{background:var(--wa);color:#04210f;box-shadow:0 10px 24px rgba(31,191,91,.35)}
-  .btn-wa:hover{background:#27d065}
-  .btn-violet{background:var(--violet);color:#fff}
-  .btn-violet:hover{background:var(--violet-d)}
-  .btn-line{background:transparent;color:var(--ink);border:2px solid var(--ink)}
-  .btn-line:hover{background:var(--ink);color:#fff}
-  .btn .i{font-size:19px}
-
-  /* One screen per section */
-  .screen{min-height:calc(100svh - var(--hdr) - var(--bar));scroll-snap-align:start;display:flex;flex-direction:column;padding:clamp(16px,3vh,36px) 0}
-  .screen>.wrap{flex:1;display:flex;flex-direction:column;gap:clamp(12px,2.4vh,22px);min-height:0}
-  .last{min-height:calc(100svh - var(--hdr) - var(--bar));scroll-snap-align:start;display:flex;flex-direction:column}
-  .last #cita{flex:1;display:flex;flex-direction:column;justify-content:center;padding:clamp(16px,3.4vh,40px) 0}
-  .eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--violet);margin-bottom:8px}
-  .head h2{font-size:clamp(26px,5vh,46px)}
-  .head p{color:var(--muted);margin-top:8px;font-size:clamp(14.5px,2vh,17.5px);max-width:60ch}
-  .grid-fill>*{min-width:0}
-  .chip{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;padding:6px 13px;border-radius:999px;background:var(--lilac);color:var(--violet-d)}
-
-  /* Hero */
-  .hero{background:radial-gradient(circle at 85% 10%,#e3d9ff 0,transparent 45%),radial-gradient(circle at 5% 95%,#fff1c7 0,transparent 35%),var(--bg)}
-  .hero-grid{flex:1;display:grid;gap:clamp(16px,3vw,48px);align-items:center;min-height:0}
-  .hero h1{font-size:clamp(34px,min(9.4vw,7.6vh),72px);margin:12px 0}
-  .hero h1 em{font-style:normal;color:var(--violet)}
-  .lead{font-size:clamp(16px,2.3vh,20px);color:var(--muted);max-width:46ch}
-  .actions{display:grid;gap:10px;margin-top:clamp(14px,3vh,26px)}
-  .hero .btn{padding:clamp(13px,2vh,17px) 26px;font-size:clamp(15px,2vh,17px)}
-  .proof{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:clamp(14px,2.6vh,24px);font-size:14px;font-weight:600;color:var(--ink)}
-  .proof span{display:inline-flex;align-items:center;gap:7px}
-  .proof .i{color:var(--violet);font-size:18px}
-  .stars{color:#f5a300;letter-spacing:1px}
-  .art{display:none;position:relative;height:clamp(280px,58vh,560px)}
-  .orb{position:absolute;inset:4% 6%;border-radius:50%;background:linear-gradient(145deg,#8b63ff,#4f27c9);box-shadow:inset 0 0 0 14px rgba(255,255,255,.08)}
-  .orb svg{position:absolute;left:50%;top:50%;width:70%;transform:translate(-50%,-50%)}
-  .fcard{position:absolute;background:#fff;border-radius:16px;padding:12px 16px;box-shadow:0 18px 40px rgba(79,39,201,.22);font-size:14px;font-weight:600;display:flex;gap:10px;align-items:center}
-  .fcard b{display:block;font-family:'Sora',sans-serif;font-size:16px}
-  .fcard small{color:var(--muted);font-weight:500}
-  .fcard .ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:20px}
-  .fc1{left:-2%;top:10%}.fc1 .ic{background:#e2f8ea;color:var(--wa-d)}
-  .fc2{right:-3%;top:66%}.fc2 .ic{background:var(--lilac);color:var(--violet)}
-  .fc3{left:6%;bottom:2%}.fc3 .ic{background:#fff3cf;color:#b07a00}
-
-  /* Plans */
-  .plans{flex:1;display:grid;gap:14px;min-height:0}
-  .plan{position:relative;display:flex;flex-direction:column;background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:clamp(16px,3vh,28px);gap:clamp(8px,1.6vh,14px)}
-  .plan.pop{border-color:var(--violet);box-shadow:0 22px 50px rgba(106,61,240,.22);background:linear-gradient(180deg,#fff,#f6f2ff)}
-  .ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--violet);color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;border-radius:999px;padding:5px 14px;white-space:nowrap}
-  .plan h3{font-size:clamp(20px,3vh,26px)}
-  .price{font:800 clamp(30px,5.2vh,48px) 'Sora',sans-serif;letter-spacing:-.04em;line-height:1}
-  .price small{font-size:.4em;font-weight:600;color:var(--muted);letter-spacing:0}
-  .msi{font-size:13.5px;font-weight:700;color:var(--wa-d)}
-  .feat{flex:1;display:grid;gap:clamp(5px,1vh,9px);align-content:start;font-size:clamp(13.5px,1.9vh,15.5px)}
-  .feat li{display:flex;gap:9px;align-items:flex-start}
-  .feat .i{margin-top:3px;color:var(--wa-d)}
-  .feat li.no{color:#9b97ad}
-  .feat li.no .i{color:#c9c5d8}
-  .feat li.soon .i{color:#c08a00}
-
-  /* Procedure */
-  .proc{flex:1;display:grid;gap:16px;min-height:0}
-  .steps{display:grid;gap:10px;grid-auto-rows:1fr}
-  .step{display:flex;gap:14px;align-items:center;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:clamp(10px,1.8vh,18px) 16px}
-  .step b{width:clamp(34px,5vh,46px);height:clamp(34px,5vh,46px);border-radius:50%;background:var(--violet);color:#fff;display:grid;place-items:center;font:700 clamp(15px,2.2vh,20px) 'Sora',sans-serif;flex-shrink:0}
-  .step h4{font-size:clamp(15px,2.3vh,19px)}
-  .step p{font-size:clamp(13px,1.8vh,15px);color:var(--muted);line-height:1.4}
-  .cmp{background:var(--ink);color:#fff;border-radius:var(--radius);padding:clamp(14px,2.6vh,26px);display:flex;flex-direction:column;gap:10px}
-  .cmp h3{font-size:clamp(18px,2.8vh,24px)}
-  .cmp table{width:100%;border-collapse:collapse;font-size:clamp(13px,1.8vh,15px);flex:1}
-  .cmp th,.cmp td{text-align:left;padding:clamp(6px,1.2vh,12px) 8px;border-bottom:1px solid rgba(255,255,255,.14)}
-  .cmp th{font-weight:700;color:#c9bcff;font-size:.9em}
-  .cmp td:first-child{color:#cfc9e6}
-  .cmp td.y{color:#7df0a5;font-weight:700}
-  .cmp td.n{color:#ffb4a8}
-
-  /* Chat (shared) */
-  .chat{display:flex;flex-direction:column;background:#fff;border:2px solid var(--line);border-radius:var(--radius);overflow:hidden;min-height:0}
-  .chat-h{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--violet);color:#fff}
-  .chat-h .av{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;font-size:20px;flex-shrink:0}
-  .chat-h b{display:block;font:700 15px 'Sora',sans-serif}
-  .chat-h small{font-size:12px;opacity:.85}
-  .chat-h .x{margin-left:auto;background:rgba(255,255,255,.18);border:0;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;display:none}
-  .msgs{flex:1;min-height:120px;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:#faf8ff}
-  .m{max-width:86%;padding:10px 14px;border-radius:16px;font-size:14.5px;line-height:1.45;word-wrap:break-word}
-  .m.bot{background:#fff;border:1px solid var(--line);border-bottom-left-radius:5px;align-self:flex-start}
-  .m.me{background:var(--violet);color:#fff;border-bottom-right-radius:5px;align-self:flex-end}
-  .m .btn{margin-top:10px;padding:9px 16px;font-size:14px;display:flex}
-  .typing{display:inline-flex;gap:4px}
-  .typing i{width:7px;height:7px;border-radius:50%;background:#b5aad8;animation:b 1s infinite}
-  .typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
-  @keyframes b{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
-  .qr{display:flex;flex-wrap:wrap;gap:7px;padding:8px 12px 0;background:#faf8ff}
-  .qr button{font:600 13px 'Manrope',sans-serif;padding:6px 12px;border-radius:999px;border:1.5px solid var(--violet);background:#fff;color:var(--violet-d);cursor:pointer}
-  .qr button:hover{background:var(--lilac)}
-  .cf{display:flex;gap:8px;padding:10px 12px;background:#faf8ff;border-top:1px solid var(--line)}
-  .cf input{flex:1;min-width:0;font:500 15px 'Manrope',sans-serif;padding:11px 14px;border:1.5px solid var(--line);border-radius:999px;background:#fff}
-  .cf input:focus{outline:2px solid var(--violet);border-color:transparent}
-  .cf button{border:0;background:var(--violet);color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;display:grid;place-items:center;font-size:19px;flex-shrink:0}
-  .disc{font-size:11.5px;color:var(--muted);padding:6px 14px 10px;background:#faf8ff;text-align:center}
-
-  /* Advisor section */
-  .adv{flex:1;display:grid;gap:18px;min-height:0}
-  .adv .copy{display:flex;flex-direction:column;justify-content:center;gap:clamp(10px,2vh,18px)}
-  .rules{display:grid;gap:10px}
-  .rules li{display:flex;gap:12px;align-items:flex-start;font-size:clamp(14px,2vh,16.5px);font-weight:600}
-  .rules .ic{width:34px;height:34px;border-radius:11px;background:var(--lilac);color:var(--violet);display:grid;place-items:center;font-size:18px;flex-shrink:0}
-  .rules span{display:block;font-weight:500;color:var(--muted);font-size:.92em}
-  .chat-slot{display:flex;min-height:0}
-  .chat-slot .chat{flex:1}
-  .adv .chat{min-height:340px}
-
-  /* Stories */
-  .st{flex:1;display:grid;gap:14px;min-height:0}
-  .vid{position:relative;border-radius:var(--radius);overflow:hidden;color:#fff;background:radial-gradient(circle at 75% 25%,#8b63ff 0,transparent 50%),linear-gradient(160deg,#2b1d63,#150f33);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(16px,3vh,28px);min-height:220px}
-  .vid .play{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:clamp(58px,10vh,86px);height:clamp(58px,10vh,86px);border-radius:50%;background:#fff;color:var(--violet);display:grid;place-items:center;font-size:clamp(24px,4vh,36px);box-shadow:0 0 0 12px rgba(255,255,255,.15)}
-  .vid .tag{position:absolute;left:16px;top:14px;background:var(--sun);color:#3a2900;font-size:12px;font-weight:800;border-radius:999px;padding:5px 12px}
-  .vid h3{font-size:clamp(19px,3.2vh,28px);margin-bottom:6px}
-  .vid p{color:#d6cdf5;font-size:14px}
-  .qs{display:grid;gap:14px;grid-auto-rows:1fr;min-height:0}
-  .q{background:var(--card);border:1.5px solid var(--line);border-radius:var(--radius);padding:clamp(14px,2.6vh,24px);display:flex;flex-direction:column;justify-content:space-between;gap:12px}
-  .q p{font-size:clamp(14.5px,2.2vh,18px);font-weight:600}
-  .who{display:flex;align-items:center;gap:10px;font-size:14px}
-  .who .av{width:38px;height:38px;border-radius:50%;background:var(--violet);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px}
-  .who small{display:block;color:var(--muted)}
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-  .stats>*{min-width:0}
-  .stats div{background:var(--lilac);border-radius:18px;padding:clamp(10px,1.8vh,16px);text-align:center}
-  .stats b{display:block;font:800 clamp(22px,4vh,36px) 'Sora',sans-serif;color:var(--violet-d);line-height:1.1}
-  .stats span{font-size:clamp(12px,1.7vh,14px);color:var(--muted);font-weight:600}
-  .note{font-size:12.5px;color:var(--muted)}
-
-  /* Locations */
-  .loc{flex:1;display:grid;gap:14px;min-height:0}
-  .clin{display:grid;gap:10px;grid-auto-rows:1fr}
-  .cl{display:flex;flex-direction:column;justify-content:center;gap:6px;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:clamp(10px,1.8vh,18px) 18px}
-  .cl h4{font-size:clamp(16px,2.4vh,20px);display:flex;gap:8px;align-items:center}
-  .cl h4 .i{color:var(--violet)}
-  .cl p{font-size:clamp(13px,1.8vh,15px);color:var(--muted)}
-  .cl .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
-  .cl .btn{padding:8px 14px;font-size:13.5px}
-  .map{position:relative;border-radius:var(--radius);overflow:hidden;border:2px solid var(--line);background:#e9f0e4;min-height:220px}
-  .map svg{position:absolute;inset:0;width:100%;height:100%}
-  .map .lbl{position:absolute;left:12px;bottom:12px;background:#fff;border-radius:12px;padding:6px 12px;font-size:12.5px;font-weight:700;box-shadow:0 6px 16px rgba(0,0,0,.12)}
-
-  /* Learn */
-  .learn{flex:1;display:grid;gap:16px;min-height:0}
-  details{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:0 16px;transition:border-color .2s}
-  details[open]{border-color:var(--violet)}
-  summary{cursor:pointer;list-style:none;font:700 clamp(14.5px,2.1vh,17px) 'Sora',sans-serif;letter-spacing:-.02em;padding:clamp(11px,1.9vh,17px) 0;display:flex;justify-content:space-between;gap:12px;align-items:center}
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";font-size:22px;color:var(--violet);line-height:1}
-  details[open] summary::after{content:"–"}
-  details p{padding:0 0 14px;color:var(--muted);font-size:clamp(13.5px,1.9vh,15.5px)}
-  .faq{display:grid;gap:9px;align-content:start}
-  .blog{display:grid;gap:12px;grid-auto-rows:1fr}
-  .post{display:flex;gap:14px;align-items:center;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:12px;transition:transform .2s}
-  .post:hover{transform:translateX(4px)}
-  .post .th{width:clamp(64px,11vh,104px);align-self:stretch;min-height:64px;border-radius:12px;display:grid;place-items:center;color:#fff;font-size:28px;flex-shrink:0}
-  .post .th.a{background:linear-gradient(135deg,#8b63ff,#4f27c9)}
-  .post .th.b{background:linear-gradient(135deg,#ff9f5a,#e0532b)}
-  .post .th.c{background:linear-gradient(135deg,#27c4a3,#0d8570)}
-  .post .cat{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--violet)}
-  .post h4{font-size:clamp(15px,2.2vh,18px);margin:3px 0}
-  .post small{color:var(--muted);font-size:12.5px}
-
-  /* Final CTA */
-  #cita{background:linear-gradient(150deg,var(--violet) 0%,#3b1aa8 100%);color:#fff}
-  #cita .wrap{display:grid;gap:22px;align-items:center}
-  #cita h2{font-size:clamp(30px,6.4vh,62px);max-width:14ch}
-  #cita .lead{color:#e3dbff;margin:12px 0 18px}
-  .ch{display:grid;gap:10px}
-  .ch .btn{justify-content:flex-start;padding:14px 22px}
-  .ch .btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.3)}
-  .ch .btn-ghost:hover{background:rgba(255,255,255,.24)}
-  .lead-form{background:#fff;color:var(--ink);border-radius:var(--radius);padding:clamp(16px,3vh,28px);display:grid;gap:10px;box-shadow:0 30px 60px rgba(0,0,0,.25)}
-  .lead-form h3{font-size:clamp(19px,3vh,26px)}
-  .lead-form label{font-size:13.5px;font-weight:700}
-  .lead-form input[type=text],.lead-form input[type=tel],.lead-form select{width:100%;font:500 15.5px 'Manrope',sans-serif;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;margin-top:5px;background:#fff;color:var(--ink)}
-  .lead-form input:focus,.lead-form select:focus{outline:2px solid var(--violet);border-color:transparent}
-  .lead-form .ck{display:flex;gap:9px;font-weight:500;font-size:12.5px;color:var(--muted);align-items:flex-start}
-  .lead-form .ck input{margin-top:3px;accent-color:var(--violet)}
-  footer{background:#120c26;color:#a79fc4;font-size:13.5px;padding:clamp(16px,3vh,30px) 0 14px}
-  .fcols{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
-  .fcols h5{margin:0 0 7px;color:#fff;font:700 14px 'Sora',sans-serif}
-  .fcols li{margin:4px 0}
-  .fcols a:hover{color:#fff}
-  .legal{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-direction:column;gap:5px;font-size:12px}
-
-  /* Floating CTAs (WhatsApp, call, advisor) */
-  .dock{position:fixed;z-index:60;display:flex}
-  .dock a,.dock button{font:700 14.5px 'Manrope',sans-serif;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;color:#fff}
-  .dock .i{font-size:22px}
-  .dk-wa{background:var(--wa);color:#04210f!important}
-  .dk-call{background:var(--ink)}
-  .dk-ai{background:var(--violet)}
-  /* mobile: bottom bar */
-  .dock{left:0;right:0;bottom:0;height:var(--bar);box-shadow:0 -8px 24px rgba(28,21,51,.18);background:#fff}
-  .dock>*{flex:1;flex-direction:column;gap:2px;font-size:12px!important}
-  .dock .i{font-size:21px}
-  /* chat panel floating */
-  .chat-pop{position:fixed;z-index:70;left:8px;right:8px;bottom:calc(var(--bar) + 8px);height:min(72vh,560px);box-shadow:0 30px 70px rgba(28,21,51,.35);display:none}
-  .chat-pop.on{display:flex}
-  .chat-pop .chat-h .x{display:block}
-
-  @media (min-width:720px){
-    .links{display:flex}
-    .nav .btn{padding:11px 20px;font-size:14.5px}
-    .actions{grid-template-columns:auto auto;justify-content:start}
-    .plans{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .proc{grid-template-columns:1.1fr .9fr}
-    .adv{grid-template-columns:.9fr 1.1fr;gap:36px}
-    .st{grid-template-columns:1fr 1fr}
-    .loc{grid-template-columns:.9fr 1.1fr}
-    .learn{grid-template-columns:1.1fr .9fr}
-    #cita .wrap{grid-template-columns:1fr 1fr;gap:48px}
-    .fcols{grid-template-columns:1.4fr repeat(3,1fr)}
-    .legal{flex-direction:row;justify-content:space-between}
-  }
-  @media (min-width:960px){
-    :root{--bar:0px}
-    .hero-grid{grid-template-columns:1.1fr .9fr}
-    .art{display:block}
-    .dock{left:auto;right:20px;bottom:20px;height:auto;flex-direction:column;gap:12px;background:transparent;box-shadow:none;align-items:flex-end}
-    .dock>*{flex:none;flex-direction:row;gap:9px;font-size:14.5px!important;border-radius:999px;box-shadow:0 14px 30px rgba(28,21,51,.3)}
-    .dk-wa{height:56px;padding:0 22px}
-    .dk-call{width:56px;height:56px}
-    .dk-call span{display:none}
-    .dk-ai{height:56px;padding:0 22px}
-    .chat-pop{left:auto;right:20px;bottom:20px;width:390px;height:min(76vh,600px)}
-    .chat-pop.on~.dock,.dock.hide{display:none}
-  }
-  @media (max-width:959px){:root{--bar:62px}}
-  @media (min-width:720px) and (max-height:820px){
-    .head p{display:none}
-    .proof{display:none}
-    .feat li:nth-child(n+6){display:none}
-    .step p{display:none}
-    .post small{display:none}
-  }
-  @media (max-width:719px){
-    .nav .links{display:none}
-    .brand{font-size:20px}
-    .hero h1{font-size:clamp(32px,9.6vw,44px)}
-    .head p{display:none}
-    .plans{gap:10px}
-    .plan{padding:12px 14px;gap:6px}
-    .plan .feat{display:none}
-    .plan .msi{font-size:12.5px}
-    .proc .cmp{display:none}
-    .step p{display:none}
-    .adv .copy .rules{display:none}
-    .adv .chat{min-height:300px}
-    .vid{min-height:150px}
-    .qs .q:nth-child(2){display:none}
-    .cl p{display:none}
-    .map{min-height:150px}
-    .blog .post:nth-child(3){display:none}
-    .faq details:nth-child(n+5){display:none}
-    .lead-form{padding:14px}
-    .ch .btn-ghost{display:none}
-  }
-
-  /* Hero quick steps */
-  .quick{display:none;list-style:none;margin:0;padding:clamp(10px,2vh,18px) 0 0;border-top:2px solid var(--line);grid-template-columns:repeat(3,1fr);gap:clamp(12px,2vw,28px)}
-  .quick li{display:flex;gap:14px;align-items:center}
-  .quick b{width:clamp(34px,5vh,46px);height:clamp(34px,5vh,46px);border-radius:50%;background:var(--ink);color:var(--sun);display:grid;place-items:center;font:700 clamp(15px,2.2vh,19px) 'Sora',sans-serif;flex-shrink:0}
-  .quick strong{display:block;font:700 clamp(14.5px,2.2vh,18px) 'Sora',sans-serif;letter-spacing:-.02em}
-  .quick span{font-size:clamp(12.5px,1.8vh,15px);color:var(--muted)}
-  /* Plans extras */
-  .plan .for{font-size:clamp(13px,1.9vh,15.5px);color:var(--muted);font-weight:600}
-  .pay{display:flex;flex-wrap:wrap;gap:8px 12px;justify-content:center}
-  .pay span{font-size:clamp(12.5px,1.8vh,14.5px);font-weight:700;color:var(--violet-d);background:var(--lilac);border-radius:999px;padding:6px 14px}
-  .dur{margin-left:auto;font-size:13px;font-weight:700;color:var(--violet-d);background:var(--lilac);border-radius:999px;padding:6px 14px;white-space:nowrap}
-  .avail{display:inline-block;font-size:12.5px;font-weight:700;color:#0b6b32;background:#e2f8ea;border-radius:999px;padding:3px 10px;margin-right:6px}
-  .post p{color:var(--muted);font-size:14px;margin:2px 0 4px}
-  @media (min-width:720px){
-    .quick{display:grid}
-    .plan h3{font-size:clamp(22px,3.6vh,32px)}
-    .price{font-size:clamp(32px,5.2vh,54px)}
-    .plan{padding:clamp(14px,2.4vh,24px);gap:clamp(6px,1.2vh,12px)}
-    .feat{font-size:clamp(13.5px,1.9vh,17px);gap:clamp(5px,1vh,10px)}
-    .step b{width:clamp(40px,7vh,62px);height:clamp(40px,7vh,62px);font-size:clamp(17px,3vh,26px)}
-    .step{gap:clamp(14px,2vw,24px)}
-    .step h4{font-size:clamp(17px,3.2vh,28px)}
-    .step p{font-size:clamp(14px,2.2vh,19px)}
-    .cmp h3{font-size:clamp(20px,3.4vh,30px)}
-    .cmp table{font-size:clamp(14px,2.4vh,19px)}
-    .q p{font-size:clamp(15px,2.6vh,22px)}
-    .q .who{font-size:clamp(14px,2vh,17px)}
-    .cl h4{font-size:clamp(18px,3.2vh,28px)}
-    .cl p{font-size:clamp(14px,2.2vh,18px)}
-    .cl .btn{padding:clamp(9px,1.6vh,14px) 18px;font-size:clamp(13.5px,1.9vh,16px)}
-    summary{padding:clamp(11px,2.6vh,26px) 0;font-size:clamp(15px,2.6vh,22px)}
-    details p{font-size:clamp(14px,2.1vh,18px)}
-    .post h4{font-size:clamp(16px,2.8vh,24px)}
-    .post p{font-size:clamp(13px,1.9vh,16px)}
-    .rules li{font-size:clamp(15px,2.4vh,20px)}
-    .rules .ic{width:clamp(34px,5vh,48px);height:clamp(34px,5vh,48px)}
-    .m{font-size:clamp(14.5px,2vh,17px)}
-    #cita .ch .btn{padding:clamp(13px,2.4vh,20px) 26px;font-size:clamp(15px,2vh,18px)}
-    #cita .lead{font-size:clamp(16px,2.4vh,21px)}
-    .lead-form input[type=text],.lead-form input[type=tel],.lead-form select{padding:clamp(11px,1.9vh,17px) 14px}
-    .lead-form{gap:clamp(8px,1.6vh,16px)}
-    .art{height:clamp(300px,64vh,640px)}
-  }
-  @media (min-width:720px) and (max-height:820px){
-    .plan .for,.pay,.cl .sp,.post p,.quick,.dur{display:none}
-    .feat li:nth-child(n+6){display:none}
-    .rules span{display:none}
-    .note{display:none}
-    #cita .lead{display:none}
-    .stats div{padding:8px}
-    .stats span{display:none}
-    .vid p{display:none}
-    .lead-form .ck{font-size:12px}
-    .faq details:nth-child(n+6){display:none}
-    .lead-form h3{display:none}
-    .lead-form{padding:14px;gap:8px}
-    .lead-form input[type=text],.lead-form input[type=tel],.lead-form select{padding:9px 12px;margin-top:3px}
-    #cita h2{font-size:clamp(28px,5.4vh,44px)}
-    #cita .ch .btn{padding:11px 22px}
-    .fcols p,.legal span:last-child{display:none}
-    footer{padding:12px 0 10px}
-  }
-  @media (max-width:719px){
-    .plan .for,.pay,.cl .sp,.post p,.dur,.note,.vid p{display:none}
-    .stats b{font-size:21px}
-    .stats span{font-size:11.5px}
-    .stats div{padding:8px 6px}
-    .adv .copy .eyebrow~p{display:none}
-    .adv .copy h2{font-size:26px!important}
-    .chat-slot{flex:none;min-width:0}
-    .chat-slot .chat{height:290px;min-height:0;flex:1 1 100%;min-width:0}
-    .faq details:nth-child(n+4){display:none}
-    .blog .post:nth-child(n+2){display:none}
-    #cita .lead{display:none}
-    #cita h2{font-size:30px}
-    .lead-form .ck{font-size:12px}
-    .head h2{font-size:26px}
-    .qs .q p{font-size:15px}
-  }
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.post,details{transition:none}.typing i{animation:none}}
-</style>
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M3 21l1.6-4.6A8.5 8.5 0 1112 20.5a8.4 8.4 0 01-4-1zM9 8c0 4 3 7 7 7l1.2-1.6-2.2-1-1 .8c-1-.4-1.8-1.2-2.2-2.2l.8-1-1-2.2z"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></symbol>
@@ -408,18 +33,18 @@
   <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9.5h.01M15 9.5h.01"/></symbol>
   <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></symbol>
 </svg>
+</svg>
 
 <div class="top">
   <div class="demo-bar">Sitio de demostración · Marca, precios y contenidos ficticios creados para portafolio</div>
   <header class="nav">
     <div class="wrap">
-      <a href="#inicio" class="brand" aria-label="Alineo"><span class="mk"><svg class="i"><use href="#i-smile"/></svg></span>Alineo</a>
-      <nav class="links" aria-label="Principal">
-        <a href="#planes">Planes</a><a href="#proceso">Proceso</a><a href="#asesor">Asesor IA</a><a href="#historias">Historias</a><a href="#clinicas">Clínicas</a><a href="#aprende">Blog</a>
-      </nav>
+      <a href="index.html" class="brand" aria-label="Alineo, inicio"><span class="mk"><svg class="i"><use href="#i-smile"/></svg></span>Alineo</a>
+      <nav class="links" aria-label="Principal"><a href="index.html" aria-current="page">Inicio</a><a href="planes.html">Planes</a><a href="procedimiento.html">Procedimiento</a><a href="historias.html">Historias</a><a href="clinicas.html">Clínicas</a><a href="blog.html">Blog</a></nav>
       <div class="push"><a href="#cita" class="btn btn-wa"><svg class="i"><use href="#i-wa"/></svg>Agendar gratis</a></div>
     </div>
   </header>
+  <nav class="subnav" aria-label="Secciones"><a href="index.html" aria-current="page">Inicio</a><a href="planes.html">Planes</a><a href="procedimiento.html">Procedimiento</a><a href="historias.html">Historias</a><a href="clinicas.html">Clínicas</a><a href="blog.html">Blog</a></nav>
 </div>
 
 <main>
@@ -457,84 +82,15 @@
     </div>
   </section>
 
-  <section id="planes" class="screen" style="background:#fff;border-block:1px solid var(--line)">
+  <section id="explora" class="screen" style="background:#fff;border-block:1px solid var(--line)">
     <div class="wrap">
-      <div class="head"><span class="eyebrow">Planes y precios</span><h2>Elige tu plan, sin letra chica</h2><p>Precios de ejemplo en pesos mexicanos. Pagas en la clínica y puedes diferir hasta 12 meses sin intereses.</p></div>
-      <div class="plans">
-        <article class="plan">
-          <h3>Esencial</h3>
-          <div><div class="price">$890 <small>MXN</small></div><div class="msi">Valoración 3D completa</div></div>
-          <p class="for">Ideal para conocer tu caso antes de decidir.</p>
-          <ul class="feat">
-            <li><svg class="i"><use href="#i-check"/></svg>Escaneo digital 3D</li>
-            <li><svg class="i"><use href="#i-check"/></svg>Simulación de tu resultado</li>
-            <li><svg class="i"><use href="#i-check"/></svg>Plan de tratamiento por escrito</li>
-            <li><svg class="i"><use href="#i-check"/></svg>Presupuesto detallado sin compromiso</li>
-            <li><svg class="i"><use href="#i-check"/></svg>Se abona al plan si continúas</li>
-            <li class="no"><svg class="i"><use href="#i-x"/></svg>Alineadores</li>
-            <li class="no"><svg class="i"><use href="#i-x"/></svg>Retenedores</li>
-          </ul>
-          <a class="btn btn-line" href="https://wa.me/?text=Hola%2C%20quiero%20el%20plan%20Esencial" target="_blank" rel="noopener">Quiero este plan</a>
-        </article>
-        <article class="plan pop">
-          <span class="ribbon">MÁS POPULAR</span>
-          <h3>Plus</h3>
-          <div><div class="price">$18,900 <small>MXN</small></div><div class="msi">o 12 pagos de $1,575 sin intereses</div></div>
-          <p class="for">Ideal para casos leves y moderados.</p>
-          <ul class="feat">
-            <li><svg class="i"><use href="#i-check"/></svg>Todo lo del plan Esencial</li>
-            <li><svg class="i"><use href="#i-check"/></svg>Hasta 24 alineadores</li>
-            <li><svg class="i"><use href="#i-check"/></svg>Revisiones cada 6 semanas</li>
-            <li><svg class="i"><use href="#i-check"/></svg>Seguimiento por WhatsApp</li>
-            <li><svg class="i"><use href="#i-check"/></svg>App para ver tu avance</li>
-            <li><svg class="i"><use href="#i-check"/></svg>Plan personalizado en 3D</li>
-            <li class="soon"><svg class="i"><use href="#i-clock"/></svg>Retenedores (opcional)</li>
-          </ul>
-          <a class="btn btn-wa" href="https://wa.me/?text=Hola%2C%20quiero%20el%20plan%20Plus" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg>Quiero este plan</a>
-        </article>
-        <article class="plan">
-          <h3>Premium</h3>
-          <div><div class="price">$32,900 <small>MXN</small></div><div class="msi">o 12 pagos de $2,742 sin intereses</div></div>
-          <p class="for">Ideal para casos complejos o si buscas todo incluido.</p>
-          <ul class="feat">
-            <li><svg class="i"><use href="#i-check"/></svg>Todo lo del plan Plus</li>
-            <li><svg class="i"><use href="#i-check"/></svg>Alineadores ilimitados</li>
-            <li><svg class="i"><use href="#i-check"/></svg>Retenedores incluidos</li>
-            <li><svg class="i"><use href="#i-check"/></svg>Blanqueamiento al finalizar</li>
-            <li><svg class="i"><use href="#i-check"/></svg>Prioridad en tu agenda</li>
-            <li><svg class="i"><use href="#i-check"/></svg>Refinamientos sin costo extra</li>
-            <li><svg class="i"><use href="#i-check"/></svg>Garantía de resultado por 12 meses</li>
-          </ul>
-          <a class="btn btn-line" href="https://wa.me/?text=Hola%2C%20quiero%20el%20plan%20Premium" target="_blank" rel="noopener">Quiero este plan</a>
-        </article>
-      </div>
-      <p class="pay"><span>Tarjetas de crédito y débito</span><span>Transferencia</span><span>Efectivo en clínica</span><span>Sin cargos ocultos</span></p>
-    </div>
-  </section>
-
-  <section id="proceso" class="screen">
-    <div class="wrap">
-      <div class="head"><span class="eyebrow">El procedimiento</span><h2>Cómo funciona, paso a paso</h2><p>Sin brackets, sin alambres y con tu resultado a la vista desde el primer día.</p></div>
-      <div class="proc">
-        <ol class="steps" style="list-style:none;margin:0;padding:0">
-          <li class="step"><b>1</b><div><h4>Valoración 3D</h4><p>Escaneamos tu sonrisa en 15 minutos, sin moldes ni incomodidad.</p></div><span class="dur">15 min</span></li>
-          <li class="step"><b>2</b><div><h4>Tu plan digital</h4><p>Ves en pantalla cómo quedará tu sonrisa y cuánto tardará.</p></div><span class="dur">Mismo día</span></li>
-          <li class="step"><b>3</b><div><h4>Alineadores a medida</h4><p>Cambias de juego cada dos semanas desde casa.</p></div><span class="dur">6 a 12 meses</span></li>
-          <li class="step"><b>4</b><div><h4>Retención y alta</h4><p>Aseguramos tu resultado con retenedores y revisiones.</p></div><span class="dur">De por vida</span></li>
-        </ol>
-        <div class="cmp">
-          <h3>Alineadores vs. brackets</h3>
-          <table>
-            <thead><tr><th></th><th>Alineo</th><th>Brackets</th></tr></thead>
-            <tbody>
-              <tr><td>Se nota</td><td class="y">Casi invisible</td><td class="n">Muy visible</td></tr>
-              <tr><td>Comer sin restricciones</td><td class="y">Sí</td><td class="n">No</td></tr>
-              <tr><td>Higiene</td><td class="y">Te los quitas</td><td class="n">Más difícil</td></tr>
-              <tr><td>Visitas</td><td class="y">Cada 6 semanas</td><td class="n">Cada 3 a 4</td></tr>
-              <tr><td>Ves tu resultado antes</td><td class="y">Sí, en 3D</td><td class="n">No</td></tr>
-            </tbody>
-          </table>
-        </div>
+      <div class="head"><span class="eyebrow">Explora Alineo</span><h2>Todo lo que necesitas, en un solo lugar</h2><p>Cada tema tiene su propia página. Entra directo a lo que te interesa.</p></div>
+      <div class="hub">
+        <a class="hc" href="planes.html"><span class="ic"><svg class="i"><use href="#i-card"/></svg></span><span class="k">Desde $890</span><h3>Planes y precios</h3><p>Tres planes claros, con hasta 12 meses sin intereses y sin cargos ocultos.</p><span class="go">Ver planes →</span></a>
+        <a class="hc" href="procedimiento.html"><span class="ic"><svg class="i"><use href="#i-clock"/></svg></span><span class="k">4 pasos</span><h3>El procedimiento</h3><p>De la valoración 3D al alta, con comparativa frente a los brackets.</p><span class="go">Ver cómo funciona →</span></a>
+        <a class="hc" href="historias.html"><span class="ic"><svg class="i"><use href="#i-smile"/></svg></span><span class="k">4.9 / 5</span><h3>Historias de pacientes</h3><p>Testimonios en video y en texto de personas que ya terminaron.</p><span class="go">Leer historias →</span></a>
+        <a class="hc" href="clinicas.html"><span class="ic"><svg class="i"><use href="#i-pin"/></svg></span><span class="k">3 sedes</span><h3>Clínicas y horarios</h3><p>Mapa, direcciones y próxima cita disponible en cada clínica.</p><span class="go">Encontrar mi clínica →</span></a>
+        <a class="hc" href="blog.html"><span class="ic"><svg class="i"><use href="#i-book"/></svg></span><span class="k">6 respuestas</span><h3>Preguntas y blog</h3><p>Resolvemos las dudas más comunes y publicamos guías prácticas.</p><span class="go">Aprender más →</span></a>
       </div>
     </div>
   </section>
@@ -553,70 +109,6 @@
           <p class="note">Demostración: las respuestas están programadas con preguntas frecuentes de ejemplo. Pruébalo escribiendo “precio”, “dolor” o “dónde”.</p>
         </div>
         <div id="chat-inline" class="chat-slot"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="historias" class="screen">
-    <div class="wrap">
-      <div class="head"><span class="eyebrow">Historias reales (de ejemplo)</span><h2>Pacientes que ya sonríen distinto</h2></div>
-      <div class="st">
-        <article class="vid">
-          <span class="tag">VIDEO · 1:48</span>
-          <span class="play"><svg class="i f"><use href="#i-play"/></svg></span>
-          <h3>“Terminé mi tratamiento y nadie se enteró”</h3>
-          <p>Mariana, 34 años · Plan Plus · 8 meses</p>
-        </article>
-        <div class="qs">
-          <article class="q"><span class="stars">★★★★★</span><p>“La valoración 3D me convenció: vi mi sonrisa final antes de pagar nada.”</p><div class="who"><span class="av">DR</span><div>Diego R., 29<small>Plan Plus</small></div></div></article>
-          <article class="q"><span class="stars">★★★★★</span><p>“Con mis horarios era imposible usar brackets. Con alineadores no cambió nada en mi día.”</p><div class="who"><span class="av">LS</span><div>Laura S., 41<small>Plan Premium</small></div></div></article>
-        </div>
-      </div>
-      <div class="stats"><div><b>4.9/5</b><span>valoración promedio</span></div><div><b>1,200+</b><span>pacientes atendidos</span></div><div><b>96%</b><span>nos recomienda</span></div></div>
-      <p class="note">Testimonios y cifras de ejemplo. En un sitio real, cada testimonio requiere autorización firmada y cumplir la regulación sanitaria vigente.</p>
-    </div>
-  </section>
-
-  <section id="clinicas" class="screen" style="background:#fff;border-block:1px solid var(--line)">
-    <div class="wrap">
-      <div class="head"><span class="eyebrow">Clínicas</span><h2>Encuentra la más cercana</h2><p>Tres sedes de ejemplo. Elige una y agenda directo por WhatsApp.</p></div>
-      <div class="loc">
-        <div class="clin">
-          <article class="cl"><h4><svg class="i"><use href="#i-pin"/></svg>Alineo Centro</h4><p>Av. Ejemplo 120, Col. Centro · Lun a sáb, 9:00 a 20:00</p><p class="sp"><span class="avail">Próxima cita: hoy 17:30</span> 4 especialistas · Estacionamiento</p><div class="row"><a class="btn btn-line" href="#clinicas">Cómo llegar</a><a class="btn btn-wa" href="https://wa.me/?text=Hola%2C%20quiero%20agendar%20en%20Alineo%20Centro" target="_blank" rel="noopener">Agendar aquí</a></div></article>
-          <article class="cl"><h4><svg class="i"><use href="#i-pin"/></svg>Alineo Norte</h4><p>Blvd. Ejemplo 845, Col. Norte · Lun a sáb, 10:00 a 20:00</p><p class="sp"><span class="avail">Próxima cita: mañana 10:00</span> 3 especialistas · Estacionamiento</p><div class="row"><a class="btn btn-line" href="#clinicas">Cómo llegar</a><a class="btn btn-wa" href="https://wa.me/?text=Hola%2C%20quiero%20agendar%20en%20Alineo%20Norte" target="_blank" rel="noopener">Agendar aquí</a></div></article>
-          <article class="cl"><h4><svg class="i"><use href="#i-pin"/></svg>Alineo Sur</h4><p>Calle Ejemplo 56, Col. Sur · Lun a vie, 9:00 a 19:00</p><p class="sp"><span class="avail">Próxima cita: hoy 19:00</span> 2 especialistas · Cerca de metro</p><div class="row"><a class="btn btn-line" href="#clinicas">Cómo llegar</a><a class="btn btn-wa" href="https://wa.me/?text=Hola%2C%20quiero%20agendar%20en%20Alineo%20Sur" target="_blank" rel="noopener">Agendar aquí</a></div></article>
-        </div>
-        <div class="map" role="img" aria-label="Mapa ilustrativo con tres clínicas">
-          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <rect width="400" height="300" fill="#e9f0e4"/>
-            <path d="M0 210 C90 180 150 260 260 220 S360 150 400 170 V300 H0z" fill="#cfe3f2"/>
-            <g stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round"><path d="M-10 90H410"/><path d="M110-10V310"/><path d="M-10 160 L410 120"/><path d="M270-10 L300 310"/></g>
-            <g stroke="#f7e9b8" stroke-width="5" fill="none"><path d="M-10 40H410"/><path d="M190-10V310"/><path d="M-10 250H410"/></g>
-            <g><circle cx="110" cy="90" r="12" fill="#6a3df0"/><circle cx="110" cy="90" r="4.5" fill="#fff"/><circle cx="270" cy="52" r="12" fill="#6a3df0"/><circle cx="270" cy="52" r="4.5" fill="#fff"/><circle cx="190" cy="204" r="12" fill="#6a3df0"/><circle cx="190" cy="204" r="4.5" fill="#fff"/></g>
-          </svg>
-          <span class="lbl">Mapa ilustrativo · integración con Google Maps</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="aprende" class="screen">
-    <div class="wrap">
-      <div class="head"><span class="eyebrow">Aprende</span><h2>Preguntas frecuentes y blog</h2></div>
-      <div class="learn">
-        <div class="faq">
-          <details open><summary>¿Cuánto cuesta la ortodoncia invisible?</summary><p>En esta demo, los planes van desde $890 MXN (valoración 3D) hasta $32,900 MXN, con hasta 12 meses sin intereses.</p></details>
-          <details><summary>¿Cuánto dura el tratamiento?</summary><p>Entre 6 y 18 meses según el caso. La valoración 3D estima tu tiempo con precisión.</p></details>
-          <details><summary>¿Los alineadores duelen?</summary><p>Puedes sentir presión leve los primeros días de cada juego, pero no es doloroso.</p></details>
-          <details><summary>¿Puedo comer con ellos puestos?</summary><p>No. Te los quitas para comer y los vuelves a colocar después de cepillarte.</p></details>
-          <details><summary>¿Quién puede usarlos?</summary><p>La mayoría de adultos y adolescentes. Un especialista lo confirma en tu valoración.</p></details>
-          <details><summary>¿Es verdad que se nota que los llevas?</summary><p>Son transparentes y casi imperceptibles. La mayoría de las personas no lo nota.</p></details>
-        </div>
-        <div class="blog">
-          <a class="post" href="#aprende"><span class="th a"><svg class="i"><use href="#i-smile"/></svg></span><div><span class="cat">Guías</span><h4>Costo de la ortodoncia invisible en México</h4><p>Qué influye en el precio y cómo comparar opciones sin sorpresas.</p><small>6 min de lectura</small></div></a>
-          <a class="post" href="#aprende"><span class="th b"><svg class="i"><use href="#i-book"/></svg></span><div><span class="cat">Mitos</span><h4>5 mitos sobre los alineadores transparentes</h4><p>Desde “se notan mucho” hasta “solo sirven para casos leves”.</p><small>4 min de lectura</small></div></a>
-          <a class="post" href="#aprende"><span class="th c"><svg class="i"><use href="#i-shield"/></svg></span><div><span class="cat">Cuidados</span><h4>Cómo limpiar tus alineadores paso a paso</h4><p>Rutina diaria simple para evitar manchas y mal olor.</p><small>3 min de lectura</small></div></a>
-        </div>
       </div>
     </div>
   </section>
@@ -648,13 +140,13 @@
       <div class="wrap">
         <div class="fcols">
           <div><div class="brand" style="color:#fff;margin-bottom:8px"><span class="mk"><svg class="i"><use href="#i-smile"/></svg></span>Alineo</div><p>Ortodoncia invisible con valoración 3D gratuita.</p></div>
-          <div><h5>Sitio</h5><ul><li><a href="#planes">Planes</a></li><li><a href="#proceso">Proceso</a></li><li><a href="#historias">Historias</a></li></ul></div>
-          <div><h5>Ayuda</h5><ul><li><a href="#asesor">Asesor con IA</a></li><li><a href="#aprende">Preguntas frecuentes</a></li><li><a href="#clinicas">Clínicas</a></li></ul></div>
+          <div><h5>Sitio</h5><ul><li><a href="planes.html">Planes</a></li><li><a href="procedimiento.html">Procedimiento</a></li><li><a href="historias.html">Historias</a></li></ul></div>
+          <div><h5>Ayuda</h5><ul><li><a href="index.html#asesor">Asesor con IA</a></li><li><a href="blog.html">Preguntas frecuentes</a></li><li><a href="clinicas.html">Clínicas</a></li></ul></div>
           <div><h5>Legal</h5><ul><li><a href="#cita">Aviso de privacidad</a></li><li><a href="#cita">Cookies</a></li><li><a href="#cita">Términos</a></li></ul></div>
         </div>
         <div class="legal">
           <span>© Alineo · Sitio de demostración. Marca, precios y testimonios ficticios; no ofrece servicios médicos reales. Aviso sanitario de ejemplo.</span>
-          <span>Diseño y desarrollo web: tu estudio aquí</span>
+          <span>Diseño y desarrollo web: GJG Servicios de Consultoría</span>
         </div>
       </div>
     </footer>
@@ -669,109 +161,6 @@
 </div>
 <div class="chat-pop" id="chat-pop" role="dialog" aria-label="Asesor virtual Alineo"></div>
 
-<script>
-(function () {
-  /* ---------- Layout helper: real sticky header height ---------- */
-  var top = document.querySelector('.top');
-  if (top && window.ResizeObserver) {
-    new ResizeObserver(function () {
-      document.documentElement.style.setProperty('--hdr', top.offsetHeight + 'px');
-    }).observe(top);
-  }
-
-  /* ---------- Closed knowledge base for the demo advisor ---------- */
-  var WA = 'https://wa.me/?text=' + encodeURIComponent('Hola, quiero agendar mi valoración gratuita');
-  var KB = [
-    {k:['hola','buenas','buenos','que tal'], a:'¡Hola! Soy el asesor virtual de Alineo. Puedo ayudarte con precios, duración, cuidados y ubicaciones.'},
-    {k:['precio','costo','cuanto cuesta','cuesta','pagar','pago','msi','meses','intereses','plan'], a:'Tenemos tres planes: Esencial (valoración 3D) $890, Plus $18,900 y Premium $32,900 MXN. Puedes pagar en la clínica y diferir hasta 12 meses sin intereses con tarjetas participantes. (Precios de ejemplo)'},
-    {k:['dura','duracion','tiempo','tarda','cuanto tiempo'], a:'Un tratamiento corto dura de 6 a 9 meses y uno completo de 12 a 18, según tu caso. En la valoración 3D te mostramos tu plan y tiempos estimados.'},
-    {k:['dolor','duele','molest','lastima'], a:'Es normal sentir una presión leve los primeros días de cada nuevo juego de alineadores, pero no es doloroso. Si algo te preocupa, tu especialista te orienta.'},
-    {k:['cuidado','limpi','cepill','comer','horas','usar'], a:'Usa tus alineadores unas 22 horas al día, quítatelos para comer y cepíllate antes de volver a ponértelos. Límpialos con agua fría y un cepillo suave.'},
-    {k:['donde','ubicacion','direccion','clinica','sucursal','mapa','llegar','cerca'], a:'Tenemos tres clínicas de ejemplo: Centro, Norte y Sur. En la sección “Clínicas” ves direcciones y horarios, y puedes agendar en la que prefieras.'},
-    {k:['edad','adolescente','adulto','candidato','sirve','puedo usar'], a:'Funciona para la mayoría de adultos y adolescentes con dientes permanentes. Solo un especialista puede confirmar si eres candidato en tu valoración.'},
-    {k:['agendar','cita','reservar','valoracion','whatsapp','hablar','contacto'], a:'¡Claro! La valoración 3D no tiene costo. Te paso a WhatsApp para elegir clínica y horario.', wa:true},
-    {k:['diagnost','enfermedad','medicamento','receta','tengo caries','infeccion'], a:'No puedo diagnosticar ni recomendar tratamientos. Para eso necesitas una valoración con un especialista.', wa:true},
-    {k:['gracias','perfecto','genial'], a:'¡Con gusto! Si quieres, agenda tu valoración gratuita por WhatsApp.', wa:true}
-  ];
-  var FALLBACK = 'No tengo esa información validada y prefiero no inventarla. Una persona de nuestro equipo puede ayudarte por WhatsApp.';
-  var CHIPS = ['¿Cuánto cuesta?','¿Cuánto dura?','¿Duele?','¿Dónde están?','Quiero agendar'];
-
-  function norm(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');}
-  function answer(q){
-    var t = norm(q), best = null, score = 0;
-    KB.forEach(function (e) {
-      var n = 0; e.k.forEach(function (w) { if (t.indexOf(w) !== -1) n++; });
-      if (n > score) { score = n; best = e; }
-    });
-    return best ? best : {a: FALLBACK, wa: true};
-  }
-
-  /* ---------- Chat component (safe DOM, no innerHTML with user text) ---------- */
-  function el(tag, cls, text){var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e;}
-  function mountChat(root, opts) {
-    opts = opts || {};
-    var box = el('div','chat'); box.style.height = '100%';
-    var h = el('div','chat-h');
-    var av = el('span','av'); av.innerHTML = '<svg class="i"><use href="#i-bot"/></svg>';
-    var tt = el('div'); tt.appendChild(el('b',null,'Asesor Alineo')); tt.appendChild(el('small',null,'IA · responde con información validada'));
-    var x = el('button','x','×'); x.type='button'; x.setAttribute('aria-label','Cerrar asesor');
-    h.appendChild(av); h.appendChild(tt); h.appendChild(x);
-    var msgs = el('div','msgs'); msgs.setAttribute('role','log'); msgs.setAttribute('aria-live','polite');
-    var qr = el('div','qr');
-    var form = el('form','cf');
-    var input = el('input'); input.type='text'; input.placeholder='Escribe tu pregunta…'; input.setAttribute('aria-label','Tu pregunta'); input.maxLength = 200;
-    var send = el('button'); send.type='submit'; send.setAttribute('aria-label','Enviar'); send.innerHTML='<svg class="i"><use href="#i-send"/></svg>';
-    form.appendChild(input); form.appendChild(send);
-    var disc = el('div','disc','No diagnostica ni guarda datos de salud. Demostración con respuestas de ejemplo.');
-    [h,msgs,qr,form,disc].forEach(function(n){box.appendChild(n);});
-    root.appendChild(box);
-
-    function add(text, who, withWa) {
-      var m = el('div','m '+who,text);
-      if (withWa) {
-        var a = el('a','btn btn-wa'); a.href = WA; a.target='_blank'; a.rel='noopener';
-        a.innerHTML = '<svg class="i"><use href="#i-wa"/></svg>'; a.appendChild(document.createTextNode('Agendar por WhatsApp'));
-        m.appendChild(a);
-      }
-      msgs.appendChild(m); msgs.scrollTop = msgs.scrollHeight; return m;
-    }
-    function ask(q) {
-      q = (q || '').trim(); if (!q) return;
-      add(q,'me');
-      var typing = el('div','m bot'); typing.innerHTML = '<span class="typing"><i></i><i></i><i></i></span>';
-      msgs.appendChild(typing); msgs.scrollTop = msgs.scrollHeight;
-      var r = answer(q);
-      setTimeout(function () { typing.remove(); add(r.a,'bot',r.wa); }, 600);
-    }
-    CHIPS.forEach(function (c) {
-      var b = el('button',null,c); b.type='button'; b.addEventListener('click', function(){ask(c);}); qr.appendChild(b);
-    });
-    form.addEventListener('submit', function (e) { e.preventDefault(); ask(input.value); input.value=''; });
-    x.addEventListener('click', function(){ if (opts.onClose) opts.onClose(); });
-    add('¡Hola! Soy el asesor virtual de Alineo. Resuelvo dudas sobre precios, duración, cuidados y clínicas. ¿En qué te ayudo?','bot');
-    if (opts.seed) { add('¿Cuánto cuesta?','me'); add(answer('cuánto cuesta').a,'bot'); }
-    return {focus:function(){input.focus();}};
-  }
-
-  var inline = document.getElementById('chat-inline');
-  if (inline) mountChat(inline, {seed:true});
-
-  var pop = document.getElementById('chat-pop'), dock = document.getElementById('dock'), popChat = null;
-  function openChat() {
-    if (!popChat) popChat = mountChat(pop, {onClose: closeChat});
-    pop.classList.add('on'); dock.classList.add('hide'); popChat.focus();
-  }
-  function closeChat() { pop.classList.remove('on'); dock.classList.remove('hide'); }
-  document.querySelectorAll('[data-open-chat]').forEach(function (b) { b.addEventListener('click', openChat); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeChat(); });
-
-  /* ---------- Lead form (demo only, nothing is sent) ---------- */
-  var lead = document.getElementById('lead');
-  if (lead) lead.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var b = lead.querySelector('button[type=submit]'); b.textContent = 'Gracias, es una demostración'; b.disabled = true;
-  });
-})();
-</script>
+<script src="assets/app.js"></script>
 </body>
 </html>
