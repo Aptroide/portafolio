@@ -10,282 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#0c1a2b; --ink-2:#14283f; --blue:#1f4fff; --blue-d:#1739c4; --mint:#12b886; --sun:#ffd166;
-    --soft:#f3f6fb; --line:#e1e7f0; --muted:#5a6b80; --card:#fff; --radius:20px;
-    --hdr:101px;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth;scroll-snap-type:y proximity;scroll-padding-top:var(--hdr)}
-  body{margin:0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.55;-webkit-font-smoothing:antialiased}
-  a{color:inherit;text-decoration:none}
-  h1,h2,h3,h4{margin:0;font-weight:800;letter-spacing:-.02em;line-height:1.12}
-  p{margin:0}
-  ul{list-style:none;margin:0;padding:0}
-  .i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-  .i.f{fill:currentColor;stroke:none}
-  .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
-
-  /* Header */
-  .top{position:sticky;top:0;z-index:30}
-  .demo-bar{background:var(--ink);color:var(--sun);font-size:12.5px;font-weight:600;text-align:center;padding:8px 16px;border-bottom:1px solid rgba(255,255,255,.12)}
-  .nav{background:#fff;border-bottom:1px solid var(--line)}
-  .nav .wrap{display:flex;align-items:center;gap:28px;height:64px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;letter-spacing:-.03em;white-space:nowrap}
-  .brand .mk{width:32px;height:32px;border-radius:10px;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:20px}
-  .brand b{color:var(--blue)}
-  .links{display:none;gap:24px;font-weight:600;font-size:14.5px;color:var(--ink-2)}
-  .links a{padding:6px 0;border-bottom:2px solid transparent}
-  .links a:hover{border-color:var(--blue);color:var(--blue)}
-  .nav .push{margin-left:auto;display:flex;align-items:center;gap:10px}
-  .ib{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:18px;background:#fff;cursor:pointer}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 14.5px 'Plus Jakarta Sans',sans-serif;padding:11px 20px;border-radius:999px;border:0;cursor:pointer;white-space:nowrap;transition:transform .15s,background .15s}
-  .btn:hover{transform:translateY(-1px)}
-  .btn-blue{background:var(--blue);color:#fff}
-  .btn-blue:hover{background:var(--blue-d)}
-  .btn-sun{background:var(--sun);color:#3a2a00}
-  .btn-white{background:#fff;color:var(--ink)}
-
-  /* Screen mechanics: each section fills one screen and stretches its content */
-  .screen{min-height:calc(100svh - var(--hdr));scroll-snap-align:start;display:flex;flex-direction:column;padding:clamp(14px,2.6vh,28px) 0}
-  .screen>.wrap{flex:1;display:flex;flex-direction:column;gap:clamp(10px,2vh,18px);min-height:0}
-  .last{min-height:calc(100svh - var(--hdr));scroll-snap-align:start;display:flex;flex-direction:column}
-  .last #boletin{flex:1}
-  .row-h{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
-  .row-h h2{font-size:clamp(26px,4.6vh,40px)}
-  .row-h a.more{font-weight:700;color:var(--blue);display:inline-flex;align-items:center;gap:6px;font-size:15px;white-space:nowrap}
-  .eyebrow{display:block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
-  .cat{font-size:12.5px;font-weight:800;color:var(--blue);letter-spacing:.02em}
-  .meta{font-size:13px;color:var(--muted);font-weight:500}
-
-  .hero-grid>*,.art-grid>*,.tw>*,.tools>*,.topics>*,.arts>*,.side>*,#boletin .wrap>*{min-width:0}
-
-  /* Trust strip */
-  .strip{display:flex;gap:10px 26px;flex-wrap:wrap;background:var(--soft);border-radius:14px;padding:10px 16px;font-size:13.5px;font-weight:600;color:var(--ink-2)}
-  .strip span{display:inline-flex;align-items:center;gap:8px}
-  .strip .i{color:var(--blue);font-size:17px}
-  .strip b{font-weight:800}
-
-  /* Hero */
-  .hero-grid{flex:1;display:grid;gap:16px;min-height:0}
-  .feat{position:relative;border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;background:var(--soft);border:1px solid var(--line)}
-  .art{flex:1;min-height:150px;position:relative;background:radial-gradient(circle at 78% 22%,#6ea0ff 0,transparent 38%),radial-gradient(circle at 18% 88%,#12b886 0,transparent 42%),linear-gradient(135deg,#1f4fff,#0f2a8a);color:#fff;overflow:hidden}
-  .art .ring{position:absolute;border-radius:50%;border:2px solid rgba(255,255,255,.22)}
-  .art .r1{width:70%;aspect-ratio:1;right:-12%;top:-30%}
-  .art .r2{width:42%;aspect-ratio:1;right:6%;top:-6%}
-  .art .big{position:absolute;right:9%;bottom:10%;font-size:clamp(90px,17vh,170px);opacity:.95;color:#fff}
-  .art .pts{position:absolute;left:clamp(14px,2vw,24px);bottom:clamp(14px,2.6vh,26px);right:34%;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.28);border-radius:18px;padding:clamp(12px,2vh,18px) clamp(14px,1.6vw,20px);display:grid;gap:clamp(6px,1.2vh,10px);font-size:clamp(13px,1.9vh,16px);font-weight:600}
-  .art .pts li{display:flex;align-items:center;gap:10px}
-  .art .pts .i{color:var(--sun);font-size:1.15em}
-  .art .tag{position:absolute;left:18px;top:16px;background:rgba(255,255,255,.18);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:999px;padding:6px 14px;font-size:12.5px;font-weight:700}
-  .feat .txt{padding:clamp(14px,2.6vh,24px) clamp(16px,2vw,26px);background:#fff}
-  .feat h1{font-size:clamp(22px,4.2vh,36px);margin:6px 0 8px}
-  .feat .txt p.ex{color:var(--muted);font-size:clamp(14px,2vh,16.5px)}
-  .feat .txt .meta{margin-top:10px;display:flex;flex-wrap:wrap;gap:2px 10px;align-items:center}
-  .side{display:flex;flex-direction:column;gap:14px;min-height:0}
-  .search{background:var(--ink);color:#fff;border-radius:var(--radius);padding:clamp(14px,2.6vh,22px)}
-  .search h2{font-size:clamp(19px,3.2vh,26px);margin-bottom:10px}
-  .sbox{display:flex;background:#fff;border-radius:999px;padding:5px;gap:6px}
-  .sbox input{flex:1;min-width:0;border:0;outline:0;font:500 15px 'Plus Jakarta Sans',sans-serif;padding:8px 14px;background:transparent;color:var(--ink)}
-  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
-  .chips a{font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18)}
-  .chips a:hover{background:rgba(255,255,255,.22)}
-  .trend{flex:1;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);padding:clamp(12px,2.2vh,18px) 18px;min-height:0}
-  .trend h3{font-size:17px;display:flex;align-items:center;gap:8px;margin-bottom:4px}
-  .trend h3 .i{color:var(--mint)}
-  .trend ul{flex:1;display:grid;grid-auto-rows:1fr}
-  .trend li{display:flex;gap:14px;align-items:center;border-top:1px solid var(--line);padding:6px 0}
-  .trend li:first-child{border-top:0}
-  .trend .n{font-size:26px;font-weight:800;color:#c3cde0;width:28px;flex-shrink:0}
-  .trend h4{font-size:clamp(14.5px,2vh,16.5px);line-height:1.25;margin-top:2px}
-
-  /* Topics */
-  .topics{flex:1;display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr;gap:12px;min-height:0}
-  .tile{position:relative;border-radius:var(--radius);padding:clamp(14px,2.4vh,22px);color:#fff;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:110px;transition:transform .2s}
-  .tile:hover{transform:translateY(-3px)}
-  .tile .i{position:absolute;right:14px;top:12px;font-size:clamp(40px,8vh,76px);opacity:.28}
-  .tile h3{font-size:clamp(17px,2.8vh,24px)}
-  .tile span{font-size:13px;font-weight:600;opacity:.9}
-  .tile em{font-style:normal;font-size:12.5px;font-weight:500;opacity:.8;margin-top:3px}
-  .g1{background:linear-gradient(145deg,#1f4fff,#0f2a8a)}
-  .g2{background:linear-gradient(145deg,#12b886,#0a7a5a)}
-  .g3{background:linear-gradient(145deg,#ff6b6b,#c2294b)}
-  .g4{background:linear-gradient(145deg,#7a5cff,#4527b8)}
-  .g5{background:linear-gradient(145deg,#ff9f43,#d9640f)}
-  .g6{background:linear-gradient(145deg,#19a7ce,#0b5d8c)}
-  .g7{background:linear-gradient(145deg,#14283f,#0c1a2b)}
-  .g8{background:linear-gradient(145deg,#e0559e,#9a2a6c)}
-  .g9{background:linear-gradient(145deg,#e76f51,#9c3d24)}
-  .g10{background:linear-gradient(145deg,#2a9d8f,#14584f)}
-  .g11{background:linear-gradient(145deg,#5e60ce,#3a3b9c)}
-  .g12{background:linear-gradient(145deg,#ffb703,#c47f00)}
-
-  /* Articles */
-  .tabs{display:flex;gap:8px;flex-wrap:wrap}
-  .tabs a{font-size:13.5px;font-weight:700;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:#fff}
-  .tabs a.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-  .art-grid{flex:1;display:grid;gap:14px;min-height:0}
-  .video{position:relative;border-radius:var(--radius);overflow:hidden;color:#fff;background:radial-gradient(circle at 80% 20%,#3b6bff 0,transparent 45%),linear-gradient(160deg,#14283f,#0c1a2b);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(16px,3vh,28px);min-height:200px}
-  .video .play{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);width:clamp(56px,10vh,84px);height:clamp(56px,10vh,84px);border-radius:50%;background:#fff;color:var(--blue);display:grid;place-items:center;font-size:clamp(22px,4vh,34px);box-shadow:0 0 0 12px rgba(255,255,255,.14)}
-  .video .tagv{position:absolute;left:18px;top:16px;background:var(--sun);color:#3a2a00;font-size:12px;font-weight:800;border-radius:999px;padding:5px 12px}
-  .video h3{font-size:clamp(20px,3.6vh,30px);margin-bottom:8px}
-  .video .who{display:flex;align-items:center;gap:10px;font-size:14px;color:#cdd8ea}
-  .av{width:34px;height:34px;border-radius:50%;background:var(--mint);color:#06281d;display:grid;place-items:center;font-weight:800;font-size:13px;flex-shrink:0}
-  .arts{display:grid;gap:14px;grid-auto-rows:1fr;min-height:0}
-  .ac{display:flex;flex-direction:row;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;transition:box-shadow .2s,transform .2s}
-  .ac:hover{box-shadow:0 14px 30px rgba(12,26,43,.10);transform:translateY(-2px)}
-  .ac .th{flex:0 0 36%;display:grid;place-items:center;color:#fff;font-size:clamp(30px,5vh,48px)}
-  .ac .bd{flex:1;padding:clamp(12px,2vh,20px);display:flex;flex-direction:column;justify-content:center;min-width:0}
-  .ac .ex{font-size:clamp(13px,1.8vh,15px);color:var(--muted);margin-bottom:8px;line-height:1.45}
-  .ac h4{font-size:clamp(16px,2.4vh,20px);margin:4px 0 6px}
-  .ac .meta{display:flex;gap:10px;align-items:center}
-
-  /* Tools */
-  .dark{background:var(--ink);color:#fff}
-  .dark .eyebrow{color:var(--sun)}
-  .tw{flex:1;display:grid;gap:14px;min-height:0}
-  .tools{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:12px;min-height:0}
-  .tool{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:clamp(14px,2.4vh,22px);display:flex;flex-direction:column;gap:clamp(8px,1.6vh,14px);transition:background .2s}
-  .tool:hover{background:rgba(255,255,255,.12)}
-  .th2{display:flex;align-items:center;gap:12px}
-  .tool .ti{width:clamp(38px,6vh,50px);height:clamp(38px,6vh,50px);border-radius:14px;background:var(--blue);display:grid;place-items:center;font-size:clamp(20px,3vh,26px);flex-shrink:0}
-  .tool:nth-child(2) .ti{background:var(--mint)}
-  .tool:nth-child(3) .ti{background:#ff6b6b}
-  .tool:nth-child(4) .ti{background:#7a5cff}
-  .tool h3{font-size:clamp(16px,2.6vh,21px)}
-  .tool p{font-size:clamp(12.5px,1.7vh,14.5px);color:#b8c6db;line-height:1.35}
-  .mini{flex:1;display:flex;flex-direction:column;gap:7px;justify-content:center;min-height:0}
-  .fld{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.08);border-radius:12px;padding:8px 12px;font-size:13.5px}
-  .fld span{color:#9fb0c8}
-  .fld b{font-weight:700}
-  .res{display:flex;flex-direction:column;gap:8px;font-size:13px;color:#b8c6db;padding-top:2px}
-  .res b{font-size:clamp(22px,3.6vh,32px);color:var(--sun);line-height:1;margin-right:8px}
-  .res .bar{position:relative;height:8px;border-radius:99px;background:linear-gradient(90deg,#4dabf7 0 20%,#12b886 20% 55%,#ffd166 55% 75%,#ff6b6b 75%)}
-  .res .bar i{position:absolute;top:-3px;left:var(--p);width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--ink);transform:translateX(-50%)}
-  .drow{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border-radius:12px;padding:7px 12px;font-size:13.5px}
-  .drow em{margin-left:auto;font-style:normal;color:var(--sun);font-weight:700}
-  .chips2{display:flex;flex-wrap:wrap;gap:7px}
-  .chips2 span{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22)}
-  .chips2 span.on{background:var(--blue);border-color:var(--blue)}
-  .tg{margin-left:auto;width:34px;height:20px;border-radius:99px;background:rgba(255,255,255,.2);position:relative;flex-shrink:0}
-  .tg::after{content:"";position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#fff}
-  .tg.on{background:var(--mint)}
-  .tg.on::after{left:17px}
-  .dotp{width:10px;height:10px;border-radius:50%;background:var(--mint);flex-shrink:0}
-  .dotp.b{background:var(--blue)}
-  .tool .go{font-weight:700;font-size:14px;color:var(--sun);display:inline-flex;gap:6px;align-items:center}
-  .method{display:flex;flex-direction:column;gap:10px;min-height:0}
-  .method h3{font-size:clamp(17px,2.6vh,22px)}
-  .steps{flex:1;display:grid;grid-auto-rows:1fr;gap:10px;min-height:0}
-  .step{display:flex;gap:clamp(12px,2vh,18px);align-items:center;background:rgba(18,184,134,.12);border:1px solid rgba(18,184,134,.3);border-radius:16px;padding:clamp(10px,1.8vh,16px) 16px}
-  .step b{width:clamp(32px,4.4vh,44px);height:clamp(32px,4.4vh,44px);border-radius:50%;background:var(--mint);color:#06281d;display:grid;place-items:center;font-size:clamp(14px,2vh,18px);flex-shrink:0}
-  .step h4{font-size:clamp(14.5px,2.4vh,21px);margin-bottom:2px}
-  .step p{font-size:clamp(12.5px,1.9vh,16.5px);color:#b8c6db;line-height:1.45}
-  .team{display:flex;align-items:center;gap:12px;font-size:13.5px;color:#b8c6db}
-  .team .avs{display:flex}
-  .team .av{margin-left:-6px;border:2px solid var(--ink);width:38px;height:38px;font-size:12px}
-  .team .avs .av:first-child{margin-left:0}
-
-  /* Newsletter + footer */
-  #boletin{background:var(--blue);color:#fff;padding:clamp(16px,3.4vh,40px) 0;display:flex}
-  #boletin .wrap{display:grid;gap:18px;align-items:center;flex:1}
-  #boletin h2{font-size:clamp(26px,5vh,46px);margin-bottom:10px}
-  .bl{display:none;margin-top:clamp(14px,3vh,26px);gap:clamp(8px,1.6vh,14px)}
-  .bl li{display:flex;align-items:center;gap:12px;font-weight:600;font-size:clamp(14px,2vh,17px)}
-  .bl .i{background:rgba(255,255,255,.18);border-radius:50%;padding:7px;width:34px;height:34px;color:#fff}
-  #boletin .lead{color:#dbe4ff;font-size:clamp(15px,2.1vh,18px);max-width:52ch}
-  .nl{background:#fff;color:var(--ink);border-radius:var(--radius);padding:clamp(16px,3vh,26px);display:grid;gap:10px}
-  .nl label{font-size:13.5px;font-weight:700}
-  .nl input[type=email]{width:100%;font:500 15.5px 'Plus Jakarta Sans',sans-serif;padding:13px 16px;border:1.5px solid var(--line);border-radius:14px;margin-top:5px}
-  .nl input[type=email]:focus{outline:2px solid var(--blue);border-color:transparent}
-  .opts{display:flex;flex-wrap:wrap;gap:8px}
-  .opts label{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:13.5px;padding:6px 12px;border:1.5px solid var(--line);border-radius:999px;cursor:pointer}
-  .opts input{accent-color:var(--blue)}
-  .nl small{color:var(--muted);font-size:12px}
-  footer{background:var(--ink);color:#b8c6db;font-size:14px;padding:clamp(18px,3.4vh,34px) 0 14px}
-  .fcols{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 20px}
-  .fcols h5{margin:0 0 8px;color:#fff;font-size:14px;font-weight:800}
-  .fcols li{margin:5px 0}
-  .fcols a:hover{color:#fff}
-  .fbrand p{margin-top:8px;font-size:13.5px;max-width:34ch}
-  .legal{margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-direction:column;gap:6px;font-size:12.5px}
-
-  /* Desktop */
-  @media (min-width:720px){
-    .links{display:flex}
-    .topics{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr)}
-    #boletin .wrap{grid-template-columns:1.1fr .9fr;gap:40px}
-    .bl{display:grid}
-    .fcols{grid-template-columns:1.4fr repeat(4,1fr)}
-    .legal{flex-direction:row;justify-content:space-between}
-  }
-  @media (min-width:960px){
-    .hero-grid{grid-template-columns:1.35fr 1fr}
-    .art-grid{grid-template-columns:.75fr 1.5fr}
-    .arts{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,minmax(0,1fr))}
-    .tw{grid-template-columns:1.7fr 1fr}
-  }
-
-  @media (min-width:720px) and (max-height:800px){
-    .strip{display:none}
-    .art .pts{display:none}
-    .trend li:nth-child(4){display:none}
-    .ac .ex{display:none}
-    .tool p{display:none}
-    .tile em{display:none}
-    .team{display:none}
-    .chips a:nth-child(n+4){display:none}
-    .bl{display:none}
-    .tool .go{display:none}
-    .drow:nth-child(3){display:none}
-    .chips2 span:nth-child(n+5){display:none}
-    .tool{padding:14px 16px;gap:8px}
-    .step p{display:none}
-    .method h3{font-size:17px}
-  }
-
-  /* Mobile */
-  @media (max-width:719px){
-    .nav .wrap{gap:12px}
-    .nav .btn{padding:9px 14px;font-size:13.5px}
-    .brand{font-size:19px}
-    .strip{display:none}
-    .feat .txt p.ex{display:none}
-    .feat h1{font-size:21px}
-    .search h2{font-size:18px;margin-bottom:8px}
-    .chips{display:none}
-    .art .pts{display:none}
-    .art{min-height:90px}
-    .trend li:nth-child(n+3){display:none}
-    .tile{min-height:56px;padding:10px 12px}
-    .tile .i{font-size:34px}
-    .tile em{display:none}
-    .mini,.tool .go,.team,.ac .ex{display:none}
-    .method h3{display:none}
-    .trend .n{font-size:22px}
-    .row-h h2{font-size:24px}
-    .row-h a.more{display:none}
-    .tabs{display:none}
-    .video{display:none}
-    .arts{grid-template-columns:1fr}
-    .ac{flex-direction:row}
-    .ac .th{flex:0 0 72px;min-height:0}
-    .ac:nth-child(n+4){display:none}
-    .ac .th{font-size:26px}
-    .ac .meta{display:none}
-    .tool p{font-size:12.5px}
-    .th2{flex-direction:column;align-items:flex-start;gap:8px}
-    .th2>div{min-width:0}
-    .tool h3{font-size:15.5px}
-    .tool{padding:14px}
-    .feat .txt{padding:12px 16px}
-    .search{padding:12px 14px}
-    .step p{display:none}
-    .method .step:nth-child(3){display:none}
-  }
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.tile,.ac,.tool{transition:none}}
-</style>
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
@@ -315,20 +40,15 @@
   <div class="demo-bar">Sitio de demostración · Marca y contenidos ficticios creados para portafolio</div>
   <header class="nav">
     <div class="wrap">
-      <a href="#inicio" class="brand" aria-label="Claro Salud"><span class="mk"><svg class="i"><use href="#i-pulse"/></svg></span>Claro<b>Salud</b></a>
-      <nav class="links" aria-label="Principal">
-        <a href="#temas">Condiciones</a>
-        <a href="#articulos">Bienestar</a>
-        <a href="#articulos">Medicamentos</a>
-        <a href="#herramientas">Herramientas</a>
-        <a href="#herramientas">Encuentra un médico</a>
-      </nav>
+      <a href="index.html" class="brand" aria-label="Claro Salud, inicio"><span class="mk"><svg class="i"><use href="#i-pulse"/></svg></span>Claro<b>Salud</b></a>
+      <nav class="links" aria-label="Principal"><a href="index.html" aria-current="page">Inicio</a><a href="temas.html">Condiciones</a><a href="articulos.html">Artículos</a><a href="herramientas.html">Herramientas</a></nav>
       <div class="push">
-        <a class="ib" href="#inicio" aria-label="Buscar"><svg class="i"><use href="#i-search"/></svg></a>
+        <a class="ib" href="index.html" aria-label="Buscar"><svg class="i"><use href="#i-search"/></svg></a>
         <a href="#boletin" class="btn btn-blue">Suscribirse</a>
       </div>
     </div>
   </header>
+  <nav class="subnav" aria-label="Secciones"><a href="index.html" aria-current="page">Inicio</a><a href="temas.html">Condiciones</a><a href="articulos.html">Artículos</a><a href="herramientas.html">Herramientas</a></nav>
 </div>
 
 <main>
@@ -362,7 +82,7 @@
               <input type="search" placeholder="Busca una condición o síntoma" aria-label="Buscar">
               <button class="btn btn-blue" type="submit"><svg class="i"><use href="#i-search"/></svg>Buscar</button>
             </form>
-            <div class="chips"><a href="#temas">Diabetes</a><a href="#temas">Presión arterial</a><a href="#temas">Ansiedad</a><a href="#temas">Colesterol</a><a href="#temas">Alergias</a></div>
+            <div class="chips"><a href="temas.html">Diabetes</a><a href="temas.html">Presión arterial</a><a href="temas.html">Ansiedad</a><a href="temas.html">Colesterol</a><a href="temas.html">Alergias</a></div>
           </div>
           <div class="trend">
             <h3><svg class="i"><use href="#i-trend"/></svg>Tendencias</h3>
@@ -373,88 +93,6 @@
               <li><span class="n">4</span><div><span class="cat">ACTIVIDAD</span><h4>Caminar a diario: qué cambia en tu cuerpo en un mes</h4></div></li>
             </ul>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="temas" class="screen" style="background:var(--soft)">
-    <div class="wrap">
-      <div class="row-h">
-        <div><span class="eyebrow">Explora</span><h2>Explora por tema de salud</h2></div>
-        <a class="more" href="#temas">Ver todos los temas <svg class="i"><use href="#i-arrow"/></svg></a>
-      </div>
-      <div class="topics">
-        <a class="tile g1" href="#articulos"><svg class="i"><use href="#i-heart"/></svg><h3>Corazón</h3><span>86 artículos</span><em>Presión arterial · Colesterol</em></a>
-        <a class="tile g2" href="#articulos"><svg class="i"><use href="#i-leaf"/></svg><h3>Nutrición</h3><span>124 artículos</span><em>Dietas · Digestión</em></a>
-        <a class="tile g4" href="#articulos"><svg class="i"><use href="#i-brain"/></svg><h3>Salud mental</h3><span>97 artículos</span><em>Ansiedad · Estrés</em></a>
-        <a class="tile g7" href="#articulos"><svg class="i"><use href="#i-moon"/></svg><h3>Sueño</h3><span>48 artículos</span><em>Insomnio · Rutinas</em></a>
-        <a class="tile g3" href="#articulos"><svg class="i"><use href="#i-drop"/></svg><h3>Diabetes</h3><span>72 artículos</span><em>Glucosa · Prevención</em></a>
-        <a class="tile g5" href="#articulos"><svg class="i"><use href="#i-run"/></svg><h3>Actividad física</h3><span>65 artículos</span><em>Caminar · Fuerza</em></a>
-        <a class="tile g6" href="#articulos"><svg class="i"><use href="#i-shield"/></svg><h3>Prevención</h3><span>59 artículos</span><em>Vacunas · Chequeos</em></a>
-        <a class="tile g8" href="#articulos"><svg class="i"><use href="#i-user"/></svg><h3>Salud de la mujer</h3><span>81 artículos</span><em>Embarazo · Menopausia</em></a>
-        <a class="tile g9" href="#articulos"><svg class="i"><use href="#i-pill"/></svg><h3>Medicamentos</h3><span>110 artículos</span><em>Dosis · Interacciones</em></a>
-        <a class="tile g10" href="#articulos"><svg class="i"><use href="#i-flask"/></svg><h3>Laboratorio</h3><span>43 artículos</span><em>Análisis · Resultados</em></a>
-        <a class="tile g11" href="#articulos"><svg class="i"><use href="#i-pulse"/></svg><h3>Respiratorio</h3><span>52 artículos</span><em>Asma · Alergias</em></a>
-        <a class="tile g12" href="#articulos"><svg class="i"><use href="#i-user"/></svg><h3>Salud infantil</h3><span>77 artículos</span><em>Vacunas · Crecimiento</em></a>
-      </div>
-    </div>
-  </section>
-
-  <section id="articulos" class="screen">
-    <div class="wrap">
-      <div class="row-h">
-        <div><span class="eyebrow">Lo último</span><h2>Artículos y videos recientes</h2></div>
-        <div class="tabs"><a class="on" href="#articulos">Todo</a><a href="#articulos">Nutrición</a><a href="#articulos">Mente</a><a href="#articulos">Corazón</a></div>
-      </div>
-      <div class="art-grid">
-        <article class="video">
-          <span class="tagv">VIDEO · 4:32</span>
-          <span class="play"><svg class="i f"><use href="#i-play"/></svg></span>
-          <h3>Pregunta al especialista: ¿cuándo preocuparse por un dolor de cabeza?</h3>
-          <div class="who"><span class="av">PR</span><span>Dr. Pablo Rivas · Neurología</span></div>
-        </article>
-        <div class="arts">
-          <a class="ac" href="#articulos"><div class="th g2"><svg class="i"><use href="#i-leaf"/></svg></div><div class="bd"><span class="cat">NUTRICIÓN</span><h4>Cuánta agua necesitas realmente al día</h4><p class="ex">Más allá de los ocho vasos: qué factores cambian tu necesidad.</p><div class="meta"><span>5 min</span><span>·</span><span>Revisado</span></div></div></a>
-          <a class="ac" href="#articulos"><div class="th g1"><svg class="i"><use href="#i-heart"/></svg></div><div class="bd"><span class="cat">CORAZÓN</span><h4>Colesterol alto: señales y cómo controlarlo</h4><p class="ex">Qué miden los análisis y qué hábitos ayudan a mejorar los valores.</p><div class="meta"><span>7 min</span><span>·</span><span>Revisado</span></div></div></a>
-          <a class="ac" href="#articulos"><div class="th g4"><svg class="i"><use href="#i-brain"/></svg></div><div class="bd"><span class="cat">SALUD MENTAL</span><h4>Cómo reconocer el estrés crónico a tiempo</h4><p class="ex">Las señales físicas y emocionales que solemos pasar por alto.</p><div class="meta"><span>6 min</span><span>·</span><span>Revisado</span></div></div></a>
-          <a class="ac" href="#articulos"><div class="th g5"><svg class="i"><use href="#i-run"/></svg></div><div class="bd"><span class="cat">ACTIVIDAD</span><h4>Rutina de 20 minutos para empezar a moverte</h4><p class="ex">Ejercicios sencillos para hacer en casa, sin equipo ni experiencia.</p><div class="meta"><span>4 min</span><span>·</span><span>Revisado</span></div></div></a>
-          <a class="ac" href="#articulos"><div class="th g7"><svg class="i"><use href="#i-moon"/></svg></div><div class="bd"><span class="cat">SUEÑO</span><h4>Siestas: cuándo ayudan y cuándo estorban</h4><p class="ex">Cuánto deben durar y a qué hora conviene tomarlas.</p><div class="meta"><span>4 min</span><span>·</span><span>Revisado</span></div></div></a>
-          <a class="ac" href="#articulos"><div class="th g3"><svg class="i"><use href="#i-drop"/></svg></div><div class="bd"><span class="cat">DIABETES</span><h4>Glucosa en ayunas: cómo interpretar tu resultado</h4><p class="ex">Rangos de referencia y qué hacer si tus valores salen alterados.</p><div class="meta"><span>6 min</span><span>·</span><span>Revisado</span></div></div></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="herramientas" class="screen dark">
-    <div class="wrap">
-      <div class="row-h">
-        <div><span class="eyebrow">Herramientas gratuitas</span><h2>Resuelve tus dudas en minutos</h2></div>
-        <a class="more" href="#herramientas" style="color:var(--sun)">Ver todas <svg class="i"><use href="#i-arrow"/></svg></a>
-      </div>
-      <div class="tw">
-        <div class="tools">
-          <a class="tool" href="#herramientas"><div class="th2"><span class="ti"><svg class="i"><use href="#i-scale"/></svg></span><div><h3>Calculadora de IMC</h3><p>Conoce tu índice de masa corporal.</p></div></div>
-            <div class="mini"><div class="fld"><span>Peso</span><b>70 kg</b></div><div class="fld"><span>Estatura</span><b>170 cm</b></div><div class="res"><div><b>24.2</b>Rango normal</div><div class="bar"><i style="--p:48%"></i></div></div></div>
-            <span class="go">Calcular <svg class="i"><use href="#i-arrow"/></svg></span></a>
-          <a class="tool" href="#herramientas"><div class="th2"><span class="ti"><svg class="i"><use href="#i-pin"/></svg></span><div><h3>Encuentra un médico</h3><p>Especialistas cerca de ti.</p></div></div>
-            <div class="mini"><div class="fld"><span>Especialidad</span><b>Cardiología</b></div><div class="fld"><span>Ubicación</span><b>Cerca de ti</b></div><div class="drow"><span class="av">EM</span>Dra. Elena Mora<em>4.9 ★</em></div></div>
-            <span class="go">Buscar <svg class="i"><use href="#i-arrow"/></svg></span></a>
-          <a class="tool" href="#herramientas"><div class="th2"><span class="ti"><svg class="i"><use href="#i-pulse"/></svg></span><div><h3>Revisa tus síntomas</h3><p>Orientación para saber cuándo consultar.</p></div></div>
-            <div class="mini"><div class="chips2"><span class="on">Fiebre</span><span>Tos</span><span class="on">Fatiga</span><span>Dolor de cabeza</span><span>Náuseas</span><span>Mareo</span></div></div>
-            <span class="go">Empezar <svg class="i"><use href="#i-arrow"/></svg></span></a>
-          <a class="tool" href="#herramientas"><div class="th2"><span class="ti"><svg class="i"><use href="#i-bell"/></svg></span><div><h3>Recordatorio de tomas</h3><p>Avisos para no olvidar nada.</p></div></div>
-            <div class="mini"><div class="drow"><span class="dotp"></span>Vitamina D<em>08:00</em><i class="tg on"></i></div><div class="drow"><span class="dotp b"></span>Omega 3<em>14:30</em><i class="tg on"></i></div><div class="drow"><span class="dotp"></span>Multivitamínico<em>20:00</em><i class="tg"></i></div></div>
-            <span class="go">Crear <svg class="i"><use href="#i-arrow"/></svg></span></a>
-        </div>
-        <div class="method">
-          <h3>Cómo revisamos cada artículo</h3>
-          <div class="steps">
-            <div class="step"><b>1</b><div><h4>Redacción con fuentes</h4><p>Cada dato se respalda con estudios y guías médicas vigentes.</p></div></div>
-            <div class="step"><b>2</b><div><h4>Revisión médica</h4><p>Un especialista valida el contenido antes de publicarlo.</p></div></div>
-            <div class="step"><b>3</b><div><h4>Actualización continua</h4><p>Revisamos cada artículo una vez al año o ante nueva evidencia.</p></div></div>
-          </div>
-          <div class="team"><span class="avs"><span class="av" style="background:#ffd166">EM</span><span class="av" style="background:#12b886">PR</span><span class="av" style="background:#8fa8ff">SN</span></span><span><b style="color:#fff">130 revisores</b> médicos en la red</span></div>
         </div>
       </div>
     </div>
@@ -485,30 +123,21 @@
     <footer>
       <div class="wrap">
         <div class="fcols">
-          <div class="fbrand"><a href="#inicio" class="brand" style="color:#fff"><span class="mk"><svg class="i"><use href="#i-pulse"/></svg></span>Claro<b style="color:#8fa8ff">Salud</b></a><p>Información médica clara, revisada por especialistas.</p></div>
-          <div><h5>Temas</h5><ul><li><a href="#temas">Corazón</a></li><li><a href="#temas">Nutrición</a></li><li><a href="#temas">Salud mental</a></li><li><a href="#temas">Sueño</a></li></ul></div>
-          <div><h5>Herramientas</h5><ul><li><a href="#herramientas">Calculadora de IMC</a></li><li><a href="#herramientas">Encuentra un médico</a></li><li><a href="#herramientas">Revisa tus síntomas</a></li></ul></div>
-          <div><h5>Sobre nosotros</h5><ul><li><a href="#herramientas">Cómo revisamos</a></li><li><a href="#herramientas">Equipo médico</a></li><li><a href="#boletin">Contacto</a></li></ul></div>
-          <div><h5>Legal</h5><ul><li><a href="#inicio">Privacidad</a></li><li><a href="#inicio">Términos</a></li><li><a href="#inicio">Cookies</a></li></ul></div>
+          <div class="fbrand"><a href="index.html" class="brand" style="color:#fff"><span class="mk"><svg class="i"><use href="#i-pulse"/></svg></span>Claro<b style="color:#8fa8ff">Salud</b></a><p>Información médica clara, revisada por especialistas.</p></div>
+          <div><h5>Temas</h5><ul><li><a href="temas.html">Corazón</a></li><li><a href="temas.html">Nutrición</a></li><li><a href="temas.html">Salud mental</a></li><li><a href="temas.html">Sueño</a></li></ul></div>
+          <div><h5>Herramientas</h5><ul><li><a href="herramientas.html">Calculadora de IMC</a></li><li><a href="herramientas.html">Encuentra un médico</a></li><li><a href="herramientas.html">Revisa tus síntomas</a></li></ul></div>
+          <div><h5>Sobre nosotros</h5><ul><li><a href="herramientas.html">Cómo revisamos</a></li><li><a href="herramientas.html">Equipo médico</a></li><li><a href="#boletin">Contacto</a></li></ul></div>
+          <div><h5>Legal</h5><ul><li><a href="index.html">Privacidad</a></li><li><a href="index.html">Términos</a></li><li><a href="index.html">Cookies</a></li></ul></div>
         </div>
         <div class="legal">
           <span>© Claro Salud · Sitio de demostración. Contenido ficticio que no sustituye el consejo médico profesional.</span>
-          <span>Diseño y desarrollo web: tu estudio aquí</span>
+          <span>Diseño y desarrollo web: GJG Servicios de Consultoría</span>
         </div>
       </div>
     </footer>
   </div>
 </main>
 
-<script>
-  // Keep full-screen sections aligned with the real sticky header height.
-  (function () {
-    var top = document.querySelector('.top');
-    if (!top || !window.ResizeObserver) return;
-    new ResizeObserver(function () {
-      document.documentElement.style.setProperty('--hdr', top.offsetHeight + 'px');
-    }).observe(top);
-  })();
-</script>
+<script src="assets/app.js"></script>
 </body>
 </html>
